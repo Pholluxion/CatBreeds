@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "run_import_sorter",
+			"type": "shell",
+			"command": "dart run import_sorter:main --no-comments",
+			"presentation": {
+				"close": true
+			}
+		}
+	]
+}
