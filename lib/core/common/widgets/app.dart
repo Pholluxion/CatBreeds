@@ -16,7 +16,10 @@ class UIApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: CupertinoThemeData(
           textTheme: CupertinoTextThemeData(
-            textStyle: const TextStyle(fontFamily: 'Montserrat'),
+            textStyle: const TextStyle(
+              fontFamily: 'Montserrat',
+              color: Color(0xFF000000),
+            ),
           ),
         ),
       ),

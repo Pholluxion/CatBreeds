@@ -4,16 +4,16 @@ import 'package:get_it/get_it.dart';
 import 'package:cat_breed/features/features.dart';
 
 void initializeInjection() {
+  const String apiURL = String.fromEnvironment('URL');
+  const String apiKey = String.fromEnvironment('API_KEY');
+
   GetIt.I.registerLazySingleton<Dio>(
     () => Dio(
       BaseOptions(
-        baseUrl: 'https://api.thecatapi.com/v1/',
+        baseUrl: apiURL,
         connectTimeout: const Duration(seconds: 10),
         receiveTimeout: const Duration(seconds: 10),
-        headers: {
-          'x-api-key':
-              'live_99Qe4Ppj34NdplyLW67xCV7Ds0oSLKGgcWWYnSzMJY9C0QOu0HUR4azYxWkyW2nr',
-        },
+        headers: {'x-api-key': apiKey},
       ),
     ),
   );
