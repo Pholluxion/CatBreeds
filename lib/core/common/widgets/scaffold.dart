@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class UIScaffold extends StatelessWidget {
   final Widget body;
   final Widget? header;
-  const UIScaffold({super.key, required this.body, required this.header});
+  const UIScaffold({super.key, required this.body, this.header});
 
   @override
   Widget build(BuildContext context) {
