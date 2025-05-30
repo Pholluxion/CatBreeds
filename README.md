@@ -17,6 +17,14 @@ Android and iOS screenshots of the application are available below:
       <img src="https://github.com/Pholluxion/CatBreeds/blob/87943f79cb13e34045b9292b1b0a71a75ad20536/assets/images/iOSScreenshot.png" width="200">
     </td>
   </tr>
+    <tr>
+    <td>
+      <img src="https://github.com/Pholluxion/CatBreeds/blob/87943f79cb13e34045b9292b1b0a71a75ad20536/assets/images/AndroidScreenshotHome.png" width="200">
+    </td>
+    <td>
+      <img src="https://github.com/Pholluxion/CatBreeds/blob/87943f79cb13e34045b9292b1b0a71a75ad20536/assets/images/iOSScreenshotHome.png" width="200">
+    </td>
+  </tr>
 </table>
 
 

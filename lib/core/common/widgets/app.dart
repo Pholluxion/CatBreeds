@@ -15,10 +15,11 @@ class UIApp extends StatelessWidget {
         routerConfig: routerConfig,
         debugShowCheckedModeBanner: false,
         theme: CupertinoThemeData(
+          primaryColor: const Color(0xFF6A3DE8),
           textTheme: CupertinoTextThemeData(
             textStyle: const TextStyle(
               fontFamily: 'Montserrat',
-              color: Color(0xFF000000),
+              color: CupertinoColors.black,
             ),
           ),
         ),
@@ -27,7 +28,10 @@ class UIApp extends StatelessWidget {
         title: 'CatBreed',
         routerConfig: routerConfig,
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(fontFamily: 'Montserrat'),
+        theme: ThemeData(
+          fontFamily: 'Montserrat',
+          primaryColor: const Color(0xFF6A3DE8),
+        ),
       ),
     };
   }
