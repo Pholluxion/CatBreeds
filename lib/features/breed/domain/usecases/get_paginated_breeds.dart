@@ -3,15 +3,20 @@ import 'package:fpdart/fpdart.dart';
 import 'package:cat_breed/core/core.dart';
 import 'package:cat_breed/features/breed/domain/domain.dart';
 
-class GetPaginatedBreeds implements Usecase<List<Breed>, Map<String, dynamic>> {
+class GetPaginatedBreeds implements Usecase<List<Breed>, Paginated> {
   final CatRepository repository;
 
   GetPaginatedBreeds(this.repository);
 
   @override
-  Future<Either<Failure, List<Breed>>> call(Map<String, dynamic> params) async {
-    final page = params['page'] ?? 1;
-    final limit = params['limit'] ?? 10;
-    return await repository.getPaginatedBreeds(page, limit);
+  Future<Either<Failure, List<Breed>>> call(Paginated params) async {
+    return await repository.getPaginatedBreeds(params.page, params.limit);
   }
+}
+
+class Paginated {
+  final int page;
+  final int limit;
+
+  Paginated({required this.page, required this.limit});
 }
