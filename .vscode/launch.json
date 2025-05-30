@@ -19,13 +19,25 @@
             "name": "cat_breed (profile mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "profile",
+            "args": [
+                "--dart-define",
+                "URL=https://api.thecatapi.com/v1/",
+                "--dart-define",
+                "API_KEY=live_99Qe4Ppj34NdplyLW67xCV7Ds0oSLKGgcWWYnSzMJY9C0QOu0HUR4azYxWkyW2nr"
+            ]
         },
         {
             "name": "cat_breed (release mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "flutterMode": "release",
+            "args": [
+                "--dart-define",
+                "URL=https://api.thecatapi.com/v1/",
+                "--dart-define",
+                "API_KEY=live_99Qe4Ppj34NdplyLW67xCV7Ds0oSLKGgcWWYnSzMJY9C0QOu0HUR4azYxWkyW2nr"
+            ]
         }
     ]
 }
