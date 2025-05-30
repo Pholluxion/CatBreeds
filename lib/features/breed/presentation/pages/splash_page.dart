@@ -6,7 +6,6 @@ import 'package:go_router/go_router.dart';
 import 'package:cat_breed/core/core.dart';
 import 'package:cat_breed/features/breed/breed.dart';
 
-const kBackgroundColor = Color(0xFF6A3DE8);
 const kWhiteColor = Color(0xFFFFFFFF);
 
 class SplashPage extends StatelessWidget {
@@ -21,31 +20,28 @@ class SplashPage extends StatelessWidget {
             context.pushReplacementNamed('home');
           }
         },
-        child: Container(
-          color: kBackgroundColor,
-          child: Column(
-            spacing: 20,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(
-                'CatBreed',
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+        child: Column(
+          spacing: 20,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text(
+              'CatBreed',
+              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 100),
+            Center(
+              child: Image.asset(
+                'assets/images/cat.png',
+                width: 200,
+                height: 200,
               ),
-              const SizedBox(height: 100),
-              Center(
-                child: Image.asset(
-                  'assets/images/cat.png',
-                  width: 200,
-                  height: 200,
-                ),
-              ),
-              UICircularProgressIndicator(),
-              Text(
-                'Loading...',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-              ),
-            ],
-          ),
+            ),
+            UICircularProgressIndicator(),
+            Text(
+              'Loading...',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+            ),
+          ],
         ),
       ),
     );
