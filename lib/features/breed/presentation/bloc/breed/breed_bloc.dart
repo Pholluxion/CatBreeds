@@ -42,38 +42,34 @@ class BreedBloc extends Bloc<BreedEvent, BreedState> {
   void _onLoadBreeds(LoadBreeds event, Emitter<BreedState> emit) async {
     if (state.hasReachedMax) return;
 
-    try {
-      if (state.status == BreedStatus.initial) {
-        emit(state.copyWith(status: BreedStatus.loading));
-      }
-
-      final breeds = await _getPaginatedBreeds({
-        'page': (state.breeds.length / 10).ceil(),
-        'limit': 10,
-      });
-
-      breeds.fold(
-        (failure) => emit(state.copyWith(status: BreedStatus.failure)),
-        (fetchedBreeds) {
-          if (fetchedBreeds.isEmpty) {
-            return emit(state.copyWith(hasReachedMax: true));
-          }
-
-          final updatedBreeds = List<Breed>.from(state.breeds)
-            ..addAll(fetchedBreeds);
-
-          emit(
-            state.copyWith(
-              status: BreedStatus.success,
-              breeds: updatedBreeds,
-              hasReachedMax: fetchedBreeds.isEmpty,
-            ),
-          );
-        },
-      );
-    } catch (_) {
-      emit(state.copyWith(status: BreedStatus.failure));
+    if (state.status == BreedStatus.initial) {
+      emit(state.copyWith(status: BreedStatus.loading));
     }
+
+    final breeds = await _getPaginatedBreeds({
+      'page': (state.breeds.length / 10).ceil(),
+      'limit': 10,
+    });
+
+    breeds.fold(
+      (failure) => emit(state.copyWith(status: BreedStatus.failure)),
+      (fetchedBreeds) {
+        if (fetchedBreeds.isEmpty) {
+          return emit(state.copyWith(hasReachedMax: true));
+        }
+
+        final updatedBreeds = List<Breed>.from(state.breeds)
+          ..addAll(fetchedBreeds);
+
+        emit(
+          state.copyWith(
+            status: BreedStatus.success,
+            breeds: updatedBreeds,
+            hasReachedMax: fetchedBreeds.isEmpty,
+          ),
+        );
+      },
+    );
   }
 
   void _onSearchBreeds(SearchBreeds event, Emitter<BreedState> emit) async {
