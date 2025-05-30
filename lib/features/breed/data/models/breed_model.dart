@@ -19,6 +19,7 @@ class BreedModel extends Breed {
     required super.hypoallergenic,
     required super.isLapCat,
     required super.wikipediaUrl,
+    required super.adaptability,
   });
 
   factory BreedModel.fromJson(Map<String, dynamic> json) {
@@ -39,6 +40,7 @@ class BreedModel extends Breed {
       hypoallergenic: (json['hypoallergenic'] as num).toInt(),
       isLapCat: (json['lap'] as int?) ?? 0,
       wikipediaUrl: json['wikipedia_url'] as String? ?? '',
+      adaptability: (json['adaptability'] as num).toInt(),
     );
   }
 }

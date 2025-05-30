@@ -21,4 +21,10 @@ class CatRepositoryImpl implements CatRepository {
     final result = await catApiDatasource.getPictureById(id);
     return result.fold((error) => Left(error), (picture) => Right(picture));
   }
+
+  @override
+  Future<Either<Failure, List<Breed>>> getBreedsByQuery(String query) async {
+    final result = await catApiDatasource.getBreedsByQuery(query);
+    return result.fold((error) => Left(error), (breeds) => Right(breeds));
+  }
 }

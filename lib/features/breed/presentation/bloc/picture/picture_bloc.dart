@@ -20,7 +20,7 @@ class PictureBloc extends Bloc<PictureEvent, PictureState> {
     }
 
     try {
-      final picture = await _getPictureById.call(event.imageId);
+      final picture = await _getPictureById(event.imageId);
       picture.fold(
         (failure) => emit(state.copyWith(status: PictureStatus.failure)),
         (fetchedPicture) {

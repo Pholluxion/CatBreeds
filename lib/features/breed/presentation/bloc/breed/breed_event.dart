@@ -8,3 +8,12 @@ sealed class BreedEvent extends Equatable {
 }
 
 final class LoadBreeds extends BreedEvent {}
+
+final class SearchBreeds extends BreedEvent {
+  final String query;
+
+  const SearchBreeds(this.query);
+
+  @override
+  List<Object> get props => [query];
+}

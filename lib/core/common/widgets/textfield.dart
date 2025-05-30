@@ -3,14 +3,16 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class UITextField extends StatelessWidget {
-  const UITextField({super.key, this.onChanged});
+  const UITextField({super.key, this.onChanged, this.controller});
 
   final ValueChanged<String>? onChanged;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return switch (defaultTargetPlatform) {
       TargetPlatform.iOS => CupertinoTextField(
+        controller: controller,
         padding: const EdgeInsets.all(16.0),
         placeholder: 'Search',
         style: const TextStyle(fontSize: 16.0),
@@ -22,6 +24,7 @@ class UITextField extends StatelessWidget {
         onTapOutside: (_) => FocusScope.of(context).unfocus(),
       ),
       _ => TextField(
+        controller: controller,
         onChanged: onChanged,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.all(16.0),

@@ -19,6 +19,7 @@ class Breed extends Equatable {
   final int childFriendly;
   final int dogFriendly;
   final int hypoallergenic;
+  final int adaptability;
 
   const Breed({
     required this.id,
@@ -37,6 +38,7 @@ class Breed extends Equatable {
     required this.hypoallergenic,
     required this.isLapCat,
     required this.wikipediaUrl,
+    required this.adaptability,
   });
 
   @override
@@ -57,5 +59,6 @@ class Breed extends Equatable {
     hypoallergenic,
     isLapCat,
     wikipediaUrl,
+    adaptability,
   ];
 }

@@ -13,6 +13,7 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
     return UIScaffold(
       header: Text(breed.name),
       body: SafeArea(
@@ -28,6 +29,7 @@ class DetailPage extends StatelessWidget {
                       fit: BoxFit.cover,
                       ref: state.imageUrls[breed.imageRef]!.url,
                       width: double.infinity,
+                      height: size.height * 0.5,
                     );
                   } else {
                     return const SizedBox.expand();
@@ -66,6 +68,10 @@ class DetailPage extends StatelessWidget {
                     ),
                     const SizedBox(height: 8.0),
                     UIDataTile(
+                      title: 'Adaptability: ',
+                      value: Text('${breed.adaptability} / 5'),
+                    ),
+                    UIDataTile(
                       title: 'Child Friendly: ',
                       value: Text('${breed.childFriendly} / 5'),
                     ),
@@ -78,6 +84,21 @@ class DetailPage extends StatelessWidget {
                     UIDataTile(
                       title: 'Intelligence: ',
                       value: Text('${breed.intelligence} / 5'),
+                    ),
+                    const SizedBox(height: 8.0),
+                    UIDataTile(
+                      title: 'Energy Level: ',
+                      value: Text('${breed.energyLevel} / 5'),
+                    ),
+                    const SizedBox(height: 8.0),
+                    UIDataTile(
+                      title: 'Dog Friendly: ',
+                      value: Text(breed.dogFriendly == 0 ? 'Yes' : 'No'),
+                    ),
+                    const SizedBox(height: 8.0),
+                    UIDataTile(
+                      title: 'Hypoallergenic: ',
+                      value: Text(breed.hypoallergenic == 0 ? 'Yes' : 'No'),
                     ),
                     const SizedBox(height: 8.0),
                     UIDataTile(

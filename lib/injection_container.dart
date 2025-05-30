@@ -34,8 +34,12 @@ void initializeInjection() {
     () => GetPictureById(GetIt.I<CatRepository>()),
   );
 
+  GetIt.I.registerLazySingleton<GetBreedsByQuery>(
+    () => GetBreedsByQuery(GetIt.I<CatRepository>()),
+  );
+
   GetIt.I.registerFactory<BreedBloc>(
-    () => BreedBloc(GetIt.I<GetPaginatedBreeds>()),
+    () => BreedBloc(GetIt.I<GetPaginatedBreeds>(), GetIt.I<GetBreedsByQuery>()),
   );
 
   GetIt.I.registerFactory<PictureBloc>(
