@@ -12,19 +12,16 @@ class CatRepositoryImpl implements CatRepository {
     int page,
     int limit,
   ) async {
-    final result = await catApiDatasource.getPaginatedBreeds(page, limit);
-    return result.fold((error) => Left(error), (breeds) => Right(breeds));
+    return await catApiDatasource.getPaginatedBreeds(page, limit);
   }
 
   @override
   Future<Either<Failure, Picture>> getPictureById(String id) async {
-    final result = await catApiDatasource.getPictureById(id);
-    return result.fold((error) => Left(error), (picture) => Right(picture));
+    return await catApiDatasource.getPictureById(id);
   }
 
   @override
   Future<Either<Failure, List<Breed>>> getBreedsByQuery(String query) async {
-    final result = await catApiDatasource.getBreedsByQuery(query);
-    return result.fold((error) => Left(error), (breeds) => Right(breeds));
+    return await catApiDatasource.getBreedsByQuery(query);
   }
 }
