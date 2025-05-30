@@ -32,7 +32,10 @@ class DetailPage extends StatelessWidget {
                       height: size.height * 0.5,
                     );
                   } else {
-                    return const SizedBox.expand();
+                    return UIPlaceholder(
+                      width: double.infinity,
+                      height: size.height * 0.5,
+                    );
                   }
                 },
               ),
