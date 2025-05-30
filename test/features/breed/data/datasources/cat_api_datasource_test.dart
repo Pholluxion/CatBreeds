@@ -37,6 +37,21 @@ void main() {
       });
     });
 
+    test('returns different status code to test error handling', () async {
+      final pictureJson = jsonDecode(readFixture('picture.json'));
+
+      when(mockDio.get('images/4RzEwvyzz')).thenAnswer(
+        (_) async => Response(
+          data: pictureJson,
+          statusCode: 204,
+          requestOptions: RequestOptions(path: 'images/4RzEwvyzz'),
+        ),
+      );
+
+      final result = await datasource.getPictureById('4RzEwvyzz');
+      expect(result.isLeft(), true);
+    });
+
     test('returns Failure on Dio error', () async {
       when(
         mockDio.get('images/4RzEwvyzz'),
@@ -68,6 +83,23 @@ void main() {
       );
     });
 
+    /// returns different status code to test error handling
+    test('returns different status code to test error handling', () async {
+      final breedsJson = jsonDecode(readFixture('breeds.json'));
+      when(
+        mockDio.get('breeds', queryParameters: {'page': 0, 'limit': 2}),
+      ).thenAnswer(
+        (_) async => Response(
+          data: breedsJson,
+          statusCode: 204,
+          requestOptions: RequestOptions(path: 'breeds'),
+        ),
+      );
+
+      final result = await datasource.getPaginatedBreeds(0, 2);
+      expect(result.isLeft(), true);
+    });
+
     test('returns Failure on error', () async {
       when(
         mockDio.get('breeds', queryParameters: {'page': 0, 'limit': 10}),
@@ -97,6 +129,22 @@ void main() {
         (l) => fail('Expected Right but got Left: $l'),
         (r) => expect(r.first.name, 'Cornish Rex'),
       );
+    });
+
+    test('returns different status code to test error handling', () async {
+      final breedsJson = jsonDecode(readFixture('search.json'));
+      when(
+        mockDio.get('breeds/search', queryParameters: {'q': 'rex'}),
+      ).thenAnswer(
+        (_) async => Response(
+          data: breedsJson,
+          statusCode: 204,
+          requestOptions: RequestOptions(path: 'breeds/search'),
+        ),
+      );
+
+      final result = await datasource.getBreedsByQuery('rex');
+      expect(result.isLeft(), true);
     });
 
     test('returns Failure on error', () async {
