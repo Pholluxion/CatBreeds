@@ -64,4 +64,26 @@ class CatApiDatasourceImpl implements CatDatasource {
       return Left(Failure('Error fetching breeds: $e'));
     }
   }
+
+  @override
+  Future<Either<Failure, List<Breed>>> getBreedsByQuery(String query) async {
+    try {
+      final response = await dio.get(
+        'breeds/search',
+        queryParameters: {'q': query},
+      );
+
+      if (response.statusCode == 200) {
+        final List<dynamic> data = response.data;
+        final breeds = data.map((item) => BreedModel.fromJson(item)).toList();
+        return Right(breeds);
+      } else {
+        return Left(
+          Failure('Failed to fetch breeds by query: ${response.statusMessage}'),
+        );
+      }
+    } catch (e) {
+      return Left(Failure('Error fetching breeds by query: $e'));
+    }
+  }
 }

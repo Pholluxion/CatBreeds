@@ -9,6 +9,7 @@ part 'breed_event.dart';
 part 'breed_state.dart';
 
 const throttleDuration = Duration(milliseconds: 100);
+const debounceDuration = Duration(milliseconds: 1000);
 
 EventTransformer<E> throttleDroppable<E>(Duration duration) {
   return (events, mapper) {
@@ -16,17 +17,29 @@ EventTransformer<E> throttleDroppable<E>(Duration duration) {
   };
 }
 
+EventTransformer<E> debounceDroppable<E>(Duration duration) {
+  return (events, mapper) {
+    return droppable<E>().call(events.debounce(duration), mapper);
+  };
+}
+
 class BreedBloc extends Bloc<BreedEvent, BreedState> {
   final GetPaginatedBreeds _getPaginatedBreeds;
+  final GetBreedsByQuery _getBreedsByQuery;
 
-  BreedBloc(this._getPaginatedBreeds) : super(BreedState()) {
+  BreedBloc(this._getPaginatedBreeds, this._getBreedsByQuery)
+    : super(BreedState()) {
     on<LoadBreeds>(
       _onLoadBreeds,
       transformer: throttleDroppable(throttleDuration),
     );
+    on<SearchBreeds>(
+      _onSearchBreeds,
+      transformer: debounceDroppable(debounceDuration),
+    );
   }
 
-  void _onLoadBreeds(BreedEvent event, Emitter<BreedState> emit) async {
+  void _onLoadBreeds(LoadBreeds event, Emitter<BreedState> emit) async {
     if (state.hasReachedMax) return;
 
     try {
@@ -34,7 +47,7 @@ class BreedBloc extends Bloc<BreedEvent, BreedState> {
         emit(state.copyWith(status: BreedStatus.loading));
       }
 
-      final breeds = await _getPaginatedBreeds.call({
+      final breeds = await _getPaginatedBreeds({
         'page': (state.breeds.length / 10).ceil(),
         'limit': 10,
       });
@@ -48,6 +61,7 @@ class BreedBloc extends Bloc<BreedEvent, BreedState> {
 
           final updatedBreeds = List<Breed>.from(state.breeds)
             ..addAll(fetchedBreeds);
+
           emit(
             state.copyWith(
               status: BreedStatus.success,
@@ -60,5 +74,25 @@ class BreedBloc extends Bloc<BreedEvent, BreedState> {
     } catch (_) {
       emit(state.copyWith(status: BreedStatus.failure));
     }
+  }
+
+  void _onSearchBreeds(SearchBreeds event, Emitter<BreedState> emit) async {
+    final query = event.query;
+
+    if (query.isEmpty) {
+      emit(state.copyWith(status: BreedStatus.initial, breeds: []));
+      add(LoadBreeds());
+      return;
+    }
+
+    emit(state.copyWith(status: BreedStatus.loading));
+
+    final result = await _getBreedsByQuery(query);
+    result.fold(
+      (failure) => emit(state.copyWith(status: BreedStatus.failure)),
+      (breeds) {
+        emit(state.copyWith(status: BreedStatus.success, breeds: breeds));
+      },
+    );
   }
 }

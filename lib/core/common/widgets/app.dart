@@ -11,7 +11,7 @@ class UIApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return switch (defaultTargetPlatform) {
       TargetPlatform.iOS => CupertinoApp.router(
-        title: 'Cat Breed',
+        title: 'CatBreed',
         routerConfig: routerConfig,
         debugShowCheckedModeBanner: false,
         theme: CupertinoThemeData(
@@ -24,7 +24,7 @@ class UIApp extends StatelessWidget {
         ),
       ),
       _ => MaterialApp.router(
-        title: 'Cat Breed',
+        title: 'CatBreed',
         routerConfig: routerConfig,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(fontFamily: 'Montserrat'),
