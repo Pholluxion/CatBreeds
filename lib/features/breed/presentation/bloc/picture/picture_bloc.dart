@@ -19,23 +19,19 @@ class PictureBloc extends Bloc<PictureEvent, PictureState> {
       return;
     }
 
-    try {
-      final picture = await _getPictureById(event.imageId);
-      picture.fold(
-        (failure) => emit(state.copyWith(status: PictureStatus.failure)),
-        (fetchedPicture) {
-          final updatedImageUrls = Map<String, Picture>.from(state.imageUrls)
-            ..[event.imageId] = fetchedPicture;
-          emit(
-            state.copyWith(
-              status: PictureStatus.success,
-              imageUrls: updatedImageUrls,
-            ),
-          );
-        },
-      );
-    } catch (_) {
-      emit(state.copyWith(status: PictureStatus.failure));
-    }
+    final picture = await _getPictureById(event.imageId);
+    picture.fold(
+      (failure) => emit(state.copyWith(status: PictureStatus.failure)),
+      (fetchedPicture) {
+        final updatedImageUrls = Map<String, Picture>.from(state.imageUrls)
+          ..[event.imageId] = fetchedPicture;
+        emit(
+          state.copyWith(
+            status: PictureStatus.success,
+            imageUrls: updatedImageUrls,
+          ),
+        );
+      },
+    );
   }
 }

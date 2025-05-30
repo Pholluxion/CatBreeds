@@ -37,7 +37,6 @@ class _UICardState extends State<UICard> {
           ),
           child: Stack(
             children: [
-              // Imagen de fondo
               BlocBuilder<PictureBloc, PictureState>(
                 builder: (context, state) {
                   final imageUrl = state.imageUrls[widget.breed.imageRef]?.url;
@@ -58,7 +57,6 @@ class _UICardState extends State<UICard> {
                   }
                 },
               ),
-
               Positioned(
                 top: 0,
                 left: 0,
@@ -90,7 +88,6 @@ class _UICardState extends State<UICard> {
                   ),
                 ),
               ),
-
               Positioned(
                 bottom: 0,
                 left: 0,
