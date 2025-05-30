@@ -1,12 +1,24 @@
 # CatBreed
-
 The CatBreed is a simple web application that allows users to search for cat breeds and view their details. 
 
 ## Screenshots
-
 Android and iOS screenshots of the application are available below:
-![Screenshot 1](https://github.com/Pholluxion/CatBreeds/blob/main/assets/images/AndroidScreenshot.png)
-![Screenshot 2](https://github.com/Pholluxion/CatBreeds/blob/main/assets/images/iOSScreenshot.png)
+
+<table>
+  <tr>
+    <td>Android</td>
+    <td>iOS</td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://github.com/Pholluxion/CatBreeds/blob/87943f79cb13e34045b9292b1b0a71a75ad20536/assets/images/AndroidScreenshot.png" width="200">
+    </td>
+    <td>
+      <img src="https://github.com/Pholluxion/CatBreeds/blob/87943f79cb13e34045b9292b1b0a71a75ad20536/assets/images/iOSScreenshot.png" width="200">
+    </td>
+  </tr>
+</table>
+
 
 ## Features
 - Search for cat breeds by name
@@ -40,6 +52,3 @@ Android and iOS screenshots of the application are available below:
 - Open the app on your device or emulator.
 - Use the search bar to find a specific cat breed.
 - Click on a breed to view its details.
-
-
-
