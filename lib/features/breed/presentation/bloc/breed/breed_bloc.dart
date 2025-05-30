@@ -27,6 +27,8 @@ class BreedBloc extends Bloc<BreedEvent, BreedState> {
   final GetPaginatedBreeds _getPaginatedBreeds;
   final GetBreedsByQuery _getBreedsByQuery;
 
+  String _lastQuery = '';
+
   BreedBloc(this._getPaginatedBreeds, this._getBreedsByQuery)
     : super(BreedState()) {
     on<LoadBreeds>(
@@ -42,7 +44,8 @@ class BreedBloc extends Bloc<BreedEvent, BreedState> {
   void _onLoadBreeds(LoadBreeds event, Emitter<BreedState> emit) async {
     if (state.hasReachedMax) return;
 
-    if (state.status == BreedStatus.initial) {
+    if (state.status == BreedStatus.initial ||
+        state.status == BreedStatus.success) {
       emit(state.copyWith(status: BreedStatus.loading));
     }
 
@@ -72,10 +75,11 @@ class BreedBloc extends Bloc<BreedEvent, BreedState> {
   }
 
   void _onSearchBreeds(SearchBreeds event, Emitter<BreedState> emit) async {
-    final query = event.query;
+    final query = event.query.trim();
+    _lastQuery = query;
 
     if (query.isEmpty) {
-      emit(state.copyWith(status: BreedStatus.initial, breeds: []));
+      emit(BreedState());
       add(LoadBreeds());
       return;
     }
@@ -83,6 +87,9 @@ class BreedBloc extends Bloc<BreedEvent, BreedState> {
     emit(state.copyWith(status: BreedStatus.loading));
 
     final result = await _getBreedsByQuery(query);
+
+    if (query != _lastQuery) return;
+
     result.fold(
       (failure) => emit(state.copyWith(status: BreedStatus.failure)),
       (breeds) {
