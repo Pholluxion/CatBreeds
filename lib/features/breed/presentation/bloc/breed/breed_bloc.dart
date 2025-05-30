@@ -46,10 +46,9 @@ class BreedBloc extends Bloc<BreedEvent, BreedState> {
       emit(state.copyWith(status: BreedStatus.loading));
     }
 
-    final breeds = await _getPaginatedBreeds({
-      'page': (state.breeds.length / 10).ceil(),
-      'limit': 10,
-    });
+    final breeds = await _getPaginatedBreeds(
+      Paginated(page: (state.breeds.length / 10).ceil(), limit: 10),
+    );
 
     breeds.fold(
       (failure) => emit(state.copyWith(status: BreedStatus.failure)),
