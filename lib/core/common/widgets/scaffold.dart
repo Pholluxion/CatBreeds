@@ -11,13 +11,24 @@ class UIScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return switch (defaultTargetPlatform) {
       TargetPlatform.iOS => CupertinoPageScaffold(
-        navigationBar: CupertinoNavigationBar(middle: header),
+        navigationBar: buildCupertinoNavigationBar,
         child: body,
       ),
-      _ => Scaffold(
-        body: body,
-        appBar: AppBar(title: header),
-      ),
+      _ => Scaffold(body: body, appBar: buildAppBar),
     };
+  }
+
+  PreferredSizeWidget? get buildAppBar {
+    if (header != null) {
+      return AppBar(title: header);
+    }
+    return null;
+  }
+
+  ObstructingPreferredSizeWidget? get buildCupertinoNavigationBar {
+    if (header != null) {
+      return CupertinoNavigationBar(middle: header);
+    }
+    return null;
   }
 }
