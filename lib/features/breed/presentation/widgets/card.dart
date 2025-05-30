@@ -29,7 +29,7 @@ class _UICardState extends State<UICard> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
-        onTap: () => context.push('/details', extra: widget.breed),
+        onTap: () => context.push('/home/details', extra: widget.breed),
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
