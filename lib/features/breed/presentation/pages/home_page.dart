@@ -81,11 +81,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _onSearch(String query) {
-    if (query.isEmpty) {
-      context.read<BreedBloc>().add(LoadBreeds());
-    } else {
-      context.read<BreedBloc>().add(SearchBreeds(query));
-    }
+    context.read<BreedBloc>().add(SearchBreeds(query));
   }
 
   bool get _isBottom {
