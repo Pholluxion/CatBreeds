@@ -1,8 +1,8 @@
 export 'app.dart';
-export 'button.dart';
-export 'circular_progress_indicator.dart';
+export 'progress.dart';
+export '../../../features/breed/presentation/widgets/clear_button.dart';
 export 'list_tile.dart';
 export 'network_image.dart';
-export 'placeholder.dart';
+export '../../../features/breed/presentation/widgets/placeholder.dart';
 export 'scaffold.dart';
 export 'textfield.dart';

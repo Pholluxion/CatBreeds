@@ -12,7 +12,10 @@ class UIDataTile extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         if (title != null)
-          Text(title.toString(), style: const TextStyle(fontSize: 16.0)),
+          Text(
+            title.toString(),
+            style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600),
+          ),
         value,
       ],
     );
