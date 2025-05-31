@@ -42,8 +42,7 @@ class BreedBloc extends Bloc<BreedEvent, BreedState> {
   void _onLoadBreeds(LoadBreeds event, Emitter<BreedState> emit) async {
     if (state.hasReachedMax) return;
 
-    if (state.status == BreedStatus.initial ||
-        state.status == BreedStatus.success) {
+    if (state.status == BreedStatus.initial) {
       emit(state.copyWith(status: BreedStatus.loading));
     }
 
