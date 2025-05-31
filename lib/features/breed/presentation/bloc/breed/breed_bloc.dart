@@ -9,7 +9,7 @@ part 'breed_event.dart';
 part 'breed_state.dart';
 
 const throttleDuration = Duration(milliseconds: 100);
-const debounceDuration = Duration(milliseconds: 1000);
+const debounceDuration = Duration(milliseconds: 500);
 
 EventTransformer<E> throttleDroppable<E>(Duration duration) {
   return (events, mapper) {

@@ -126,7 +126,13 @@ class DetailPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 16.0),
-                    Text('Temperament', style: const TextStyle(fontSize: 16.0)),
+                    Text(
+                      'Temperament',
+                      style: const TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     const SizedBox(height: 8.0),
                     Wrap(
                       spacing: 8.0,

@@ -3,8 +3,16 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class UITextField extends StatelessWidget {
-  const UITextField({super.key, this.onChanged, this.controller});
+  const UITextField({
+    super.key,
+    this.onChanged,
+    this.controller,
+    this.suffix,
+    this.placeholder,
+  });
 
+  final String? placeholder;
+  final Widget? suffix;
   final ValueChanged<String>? onChanged;
   final TextEditingController? controller;
 
@@ -13,10 +21,9 @@ class UITextField extends StatelessWidget {
     return switch (defaultTargetPlatform) {
       TargetPlatform.iOS => CupertinoTextField(
         controller: controller,
-        padding: const EdgeInsets.all(16.0),
-        placeholder: 'Search',
-        style: const TextStyle(fontSize: 16.0),
+        placeholder: placeholder,
         onChanged: onChanged,
+        suffix: suffix,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.0),
           border: Border.all(color: CupertinoColors.systemGrey4),
@@ -27,11 +34,13 @@ class UITextField extends StatelessWidget {
         controller: controller,
         onChanged: onChanged,
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.all(16.0),
-          hintText: 'Search',
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
+          suffixIcon: suffix,
+          hintText: placeholder,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            borderSide: BorderSide(color: Colors.grey),
+          ),
         ),
-        style: const TextStyle(fontSize: 16.0),
         onTapOutside: (_) => FocusScope.of(context).unfocus(),
       ),
     };

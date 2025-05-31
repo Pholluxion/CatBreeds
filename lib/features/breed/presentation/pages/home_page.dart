@@ -32,8 +32,15 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: UITextField(
+                placeholder: 'Search breeds',
                 controller: searchController,
                 onChanged: _onSearch,
+                suffix: UIIconButton(
+                  onPressed: () {
+                    searchController.clear();
+                    _onSearch('');
+                  },
+                ),
               ),
             ),
             Expanded(
