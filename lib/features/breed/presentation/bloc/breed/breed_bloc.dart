@@ -19,15 +19,13 @@ EventTransformer<E> throttleDroppable<E>(Duration duration) {
 
 EventTransformer<E> debounceDroppable<E>(Duration duration) {
   return (events, mapper) {
-    return droppable<E>().call(events.debounce(duration), mapper);
+    return events.debounce(duration).switchMap(mapper);
   };
 }
 
 class BreedBloc extends Bloc<BreedEvent, BreedState> {
   final GetPaginatedBreeds _getPaginatedBreeds;
   final GetBreedsByQuery _getBreedsByQuery;
-
-  String _lastQuery = '';
 
   BreedBloc(this._getPaginatedBreeds, this._getBreedsByQuery)
     : super(BreedState()) {
@@ -76,7 +74,6 @@ class BreedBloc extends Bloc<BreedEvent, BreedState> {
 
   void _onSearchBreeds(SearchBreeds event, Emitter<BreedState> emit) async {
     final query = event.query.trim();
-    _lastQuery = query;
 
     if (query.isEmpty) {
       emit(BreedState());
@@ -87,8 +84,6 @@ class BreedBloc extends Bloc<BreedEvent, BreedState> {
     emit(state.copyWith(status: BreedStatus.loading));
 
     final result = await _getBreedsByQuery(query);
-
-    if (query != _lastQuery) return;
 
     result.fold(
       (failure) => emit(state.copyWith(status: BreedStatus.failure)),
