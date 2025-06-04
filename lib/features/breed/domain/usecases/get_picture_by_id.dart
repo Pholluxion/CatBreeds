@@ -1,5 +1,3 @@
-import 'package:fpdart/fpdart.dart';
-
 import 'package:cat_breed/core/core.dart';
 import 'package:cat_breed/features/breed/domain/domain.dart';
 
@@ -9,7 +7,7 @@ class GetPictureById implements Usecase<Picture, String> {
   GetPictureById(this.repository);
 
   @override
-  Future<Either<Failure, Picture>> call(String params) {
+  Future<Result<Picture>> call(String params) {
     return repository.getPictureById(params);
   }
 }
