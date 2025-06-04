@@ -1,5 +1,3 @@
-import 'package:fpdart/fpdart.dart';
-
 import 'package:cat_breed/core/core.dart';
 import 'package:cat_breed/features/breed/domain/domain.dart';
 
@@ -9,7 +7,7 @@ class GetPaginatedBreeds implements Usecase<List<Breed>, Paginated> {
   GetPaginatedBreeds(this.repository);
 
   @override
-  Future<Either<Failure, List<Breed>>> call(Paginated params) async {
+  Future<Result<List<Breed>>> call(Paginated params) async {
     return await repository.getPaginatedBreeds(params.page, params.limit);
   }
 }

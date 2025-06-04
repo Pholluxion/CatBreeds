@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+import 'package:dio/dio.dart' hide Response;
 import 'package:fpdart/fpdart.dart';
 
 import 'package:cat_breed/core/core.dart';
@@ -12,7 +12,7 @@ class CatApiDatasourceImpl implements CatDatasource {
   CatApiDatasourceImpl({required this.dio});
 
   @override
-  Future<Either<Failure, Picture>> getPictureById(String id) async {
+  Future<Result<Picture>> getPictureById(String id) async {
     if (_pictureCache.containsKey(id)) {
       return Right(_pictureCache[id]!);
     }
@@ -36,10 +36,7 @@ class CatApiDatasourceImpl implements CatDatasource {
   }
 
   @override
-  Future<Either<Failure, List<Breed>>> getPaginatedBreeds(
-    int page,
-    int limit,
-  ) async {
+  Future<Result<List<Breed>>> getPaginatedBreeds(int page, int limit) async {
     if (_breedCache.containsKey(page)) {
       return Right(_breedCache[page]!);
     }
@@ -66,7 +63,7 @@ class CatApiDatasourceImpl implements CatDatasource {
   }
 
   @override
-  Future<Either<Failure, List<Breed>>> getBreedsByQuery(String query) async {
+  Future<Result<List<Breed>>> getBreedsByQuery(String query) async {
     try {
       final response = await dio.get(
         'breeds/search',
