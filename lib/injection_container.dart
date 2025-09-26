@@ -1,48 +1,32 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:go_router/go_router.dart';
 
-import 'package:cat_breed/features/features.dart';
+import 'package:cat_breed/core/core.dart';
+import 'package:cat_breed/features/cat_breeds/dependency_injection.dart';
+
+final List<DIWrapper> _diWrappers = [CatDependencyInjection()];
 
 void initializeInjection() {
-  const String apiURL = String.fromEnvironment('URL');
-  const String apiKey = String.fromEnvironment('API_KEY');
-
   GetIt.I.registerLazySingleton<Dio>(
-    () => Dio(
-      BaseOptions(
-        baseUrl: apiURL,
-        connectTimeout: const Duration(seconds: 10),
-        receiveTimeout: const Duration(seconds: 10),
-        headers: {'x-api-key': apiKey},
-      ),
-    ),
+    () => Dio()..interceptors.add(ApiKeyInterceptor()),
   );
 
-  GetIt.I.registerLazySingleton<CatDatasource>(
-    () => CatApiDatasourceImpl(dio: GetIt.I<Dio>()),
+  GetIt.I.registerLazySingleton<HttpClient>(
+    () => DioHttpClient(dio: GetIt.I<Dio>()),
   );
 
-  GetIt.I.registerLazySingleton<CatRepository>(
-    () => CatRepositoryImpl(GetIt.I<CatDatasource>()),
-  );
+  for (final diWrapper in _diWrappers) {
+    diWrapper.setupDependencyInjection();
+  }
 
-  GetIt.I.registerLazySingleton<GetPaginatedBreeds>(
-    () => GetPaginatedBreeds(GetIt.I<CatRepository>()),
-  );
+  final routes = <RouteBase>[];
 
-  GetIt.I.registerLazySingleton<GetPictureById>(
-    () => GetPictureById(GetIt.I<CatRepository>()),
-  );
+  for (final diWrapper in _diWrappers) {
+    routes.addAll(diWrapper.setupRoutes());
+  }
 
-  GetIt.I.registerLazySingleton<GetBreedsByQuery>(
-    () => GetBreedsByQuery(GetIt.I<CatRepository>()),
-  );
-
-  GetIt.I.registerFactory<BreedBloc>(
-    () => BreedBloc(GetIt.I<GetPaginatedBreeds>(), GetIt.I<GetBreedsByQuery>()),
-  );
-
-  GetIt.I.registerFactory<PictureBloc>(
-    () => PictureBloc(GetIt.I<GetPictureById>()),
+  GetIt.I.registerLazySingleton<GoRouter>(
+    () => GoRouter(initialLocation: '/', routes: [...routes]),
   );
 }

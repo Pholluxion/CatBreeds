@@ -2,11 +2,11 @@ import 'package:flutter/widgets.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:cat_breed/core/core.dart';
-import 'package:cat_breed/features/features.dart';
+import 'package:cat_breed/features/cat_breeds/presentation/presentation.dart';
 import 'package:cat_breed/injection_container.dart';
-import 'package:cat_breed/router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,11 +22,12 @@ class MainApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => GetIt.I.get<BreedBloc>()..add(LoadBreeds()),
+          create: (context) =>
+              GetIt.I.get<CatBreedBloc>()..add(const LoadBreedsEvent()),
         ),
-        BlocProvider(create: (context) => GetIt.I.get<PictureBloc>()),
+        // BlocProvider(create: (context) => GetIt.I.get<PictureBloc>()),
       ],
-      child: UIApp(routerConfig: router),
+      child: UIApp(routerConfig: GetIt.I<GoRouter>()),
     );
   }
 }

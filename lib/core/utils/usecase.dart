@@ -1,3 +1,5 @@
+// coverage:ignore-file
+
 import 'package:cat_breed/core/core.dart';
 
 abstract interface class Usecase<SuccessType, Params> {
