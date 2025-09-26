@@ -25,7 +25,7 @@ final GoRouter router = GoRouter(
           path: 'details',
           name: 'details',
           builder: (BuildContext context, GoRouterState state) {
-            final Breed breed = state.extra as Breed;
+            final CatBreedEntity breed = state.extra as CatBreedEntity;
             return DetailPage(breed: breed);
           },
         ),

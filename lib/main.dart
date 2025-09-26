@@ -22,9 +22,10 @@ class MainApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => GetIt.I.get<BreedBloc>()..add(LoadBreeds()),
+          create: (context) =>
+              GetIt.I.get<CatBreedBloc>()..add(LoadBreedsEvent()),
         ),
-        BlocProvider(create: (context) => GetIt.I.get<PictureBloc>()),
+        // BlocProvider(create: (context) => GetIt.I.get<PictureBloc>()),
       ],
       child: UIApp(routerConfig: router),
     );

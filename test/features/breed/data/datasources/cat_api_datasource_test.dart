@@ -5,16 +5,16 @@ import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-import 'package:cat_breed/features/breed/breed.dart';
+import 'package:cat_breed/features/cat_breeds/breed.dart';
 import 'utils/dio.mocks.dart';
 
 void main() {
   late MockDio mockDio;
-  late CatApiDatasourceImpl datasource;
+  late CatDatasourceImpl datasource;
 
   setUp(() {
     mockDio = MockDio();
-    datasource = CatApiDatasourceImpl(dio: mockDio);
+    datasource = CatDatasourceImpl(dio: mockDio);
   });
 
   group('getPictureById', () {
@@ -75,7 +75,7 @@ void main() {
         ),
       );
 
-      final result = await datasource.getPaginatedBreeds(0, 2);
+      final result = await datasource.getBreeds(0, 2);
       expect(result.isRight(), true);
       result.match(
         (l) => fail('Expected Right but got Left: $l'),
@@ -96,7 +96,7 @@ void main() {
         ),
       );
 
-      final result = await datasource.getPaginatedBreeds(0, 2);
+      final result = await datasource.getBreeds(0, 2);
       expect(result.isLeft(), true);
     });
 
@@ -105,7 +105,7 @@ void main() {
         mockDio.get('breeds', queryParameters: {'page': 0, 'limit': 10}),
       ).thenThrow(Exception('Request failed'));
 
-      final result = await datasource.getPaginatedBreeds(0, 10);
+      final result = await datasource.getBreeds(0, 10);
       expect(result.isLeft(), true);
     });
   });

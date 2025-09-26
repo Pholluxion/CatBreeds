@@ -18,31 +18,46 @@ void initializeInjection() {
     ),
   );
 
-  GetIt.I.registerLazySingleton<CatDatasource>(
-    () => CatApiDatasourceImpl(dio: GetIt.I<Dio>()),
+  registerDatasource<CatDatasource>(
+    useMock: false,
+    datasourceFactory: (useMock) => useMock
+        ? CatDatasourceMockImpl()
+        : CatDatasourceImpl(dio: GetIt.I<Dio>()),
   );
 
   GetIt.I.registerLazySingleton<CatRepository>(
-    () => CatRepositoryImpl(GetIt.I<CatDatasource>()),
+    () => CatRepositoryImpl(catDataSource: GetIt.I<CatDatasource>()),
   );
 
-  GetIt.I.registerLazySingleton<GetPaginatedBreeds>(
-    () => GetPaginatedBreeds(GetIt.I<CatRepository>()),
+  GetIt.I.registerLazySingleton<GetAllCatBreeds>(
+    () => GetAllCatBreeds(GetIt.I<CatRepository>()),
   );
 
-  GetIt.I.registerLazySingleton<GetPictureById>(
-    () => GetPictureById(GetIt.I<CatRepository>()),
+  GetIt.I.registerLazySingleton<SearchCatBreeds>(
+    () => SearchCatBreeds(GetIt.I<CatRepository>()),
   );
 
-  GetIt.I.registerLazySingleton<GetBreedsByQuery>(
-    () => GetBreedsByQuery(GetIt.I<CatRepository>()),
+  GetIt.I.registerFactory<CatBreedBloc>(
+    () => CatBreedBloc(GetIt.I<GetAllCatBreeds>(), GetIt.I<SearchCatBreeds>()),
   );
+}
 
-  GetIt.I.registerFactory<BreedBloc>(
-    () => BreedBloc(GetIt.I<GetPaginatedBreeds>(), GetIt.I<GetBreedsByQuery>()),
-  );
+/// Registers a datasource in the dependency injection container.
+///
+/// [T] is the type of datasource to register.
+/// [useMock] determines whether to use mock implementation.
+/// [datasourceFactory] is a function that creates the datasource instance.
+///
+/// Throws [ArgumentError] if datasourceFactory returns null.
+void registerDatasource<T extends Object>({
+  required bool useMock,
+  required T Function(bool useMock) datasourceFactory,
+}) {
+  final instance = datasourceFactory(useMock);
 
-  GetIt.I.registerFactory<PictureBloc>(
-    () => PictureBloc(GetIt.I<GetPictureById>()),
-  );
+  if (GetIt.I.isRegistered<T>()) {
+    GetIt.I.unregister<T>();
+  }
+
+  GetIt.I.registerSingleton<T>(instance);
 }
