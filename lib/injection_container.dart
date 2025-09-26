@@ -1,48 +1,28 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:go_router/go_router.dart';
 
-import 'package:cat_breed/features/features.dart';
+import 'package:cat_breed/core/core.dart';
+import 'package:cat_breed/features/cat_breeds/dependency_injection.dart';
+
+final List<ServiceLocator> _serviceLocators = [CatDependencyInjection()];
+final List<RouteBase> _routes = [];
 
 void initializeInjection() {
-  const String apiURL = String.fromEnvironment('URL');
-  const String apiKey = String.fromEnvironment('API_KEY');
-
   GetIt.I.registerLazySingleton<Dio>(
-    () => Dio(
-      BaseOptions(
-        baseUrl: apiURL,
-        connectTimeout: const Duration(seconds: 10),
-        receiveTimeout: const Duration(seconds: 10),
-        headers: {'x-api-key': apiKey},
-      ),
-    ),
+    () => Dio()..interceptors.add(ApiKeyInterceptor()),
   );
 
-  GetIt.I.registerLazySingleton<CatDatasource>(
-    () => CatApiDatasourceImpl(dio: GetIt.I<Dio>()),
+  GetIt.I.registerLazySingleton<HttpClient>(
+    () => DioHttpClient(dio: GetIt.I<Dio>()),
   );
 
-  GetIt.I.registerLazySingleton<CatRepository>(
-    () => CatRepositoryImpl(GetIt.I<CatDatasource>()),
-  );
+  for (final serviceLocator in _serviceLocators) {
+    serviceLocator.setupDependencyInjection();
+    _routes.addAll(serviceLocator.setupRoutes());
+  }
 
-  GetIt.I.registerLazySingleton<GetPaginatedBreeds>(
-    () => GetPaginatedBreeds(GetIt.I<CatRepository>()),
-  );
-
-  GetIt.I.registerLazySingleton<GetPictureById>(
-    () => GetPictureById(GetIt.I<CatRepository>()),
-  );
-
-  GetIt.I.registerLazySingleton<GetBreedsByQuery>(
-    () => GetBreedsByQuery(GetIt.I<CatRepository>()),
-  );
-
-  GetIt.I.registerFactory<BreedBloc>(
-    () => BreedBloc(GetIt.I<GetPaginatedBreeds>(), GetIt.I<GetBreedsByQuery>()),
-  );
-
-  GetIt.I.registerFactory<PictureBloc>(
-    () => PictureBloc(GetIt.I<GetPictureById>()),
+  GetIt.I.registerLazySingleton<GoRouter>(
+    () => GoRouter(initialLocation: '/', routes: _routes),
   );
 }

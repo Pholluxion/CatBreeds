@@ -43,3 +43,16 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# FVM Version Cache
+.fvm/
+.fvmrc
+
+# Test coverage reports
+coverage/html/
+
+# Env files
+.env
+
+# vscode settings
+.vscode/

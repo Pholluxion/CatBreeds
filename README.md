@@ -57,7 +57,7 @@ Android and iOS screenshots of the application are available below:
     ```
 4. Run the application:
     ```bash
-    flutter run
+    flutter run --dart-define-from-file=.env
     ```
 ## Usage
 - Open the app on your device or emulator.
