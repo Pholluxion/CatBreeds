@@ -14,8 +14,8 @@ void main() {
   setUp(() {
     datasourceSuccess = CatDatasourceMockImpl();
     datasourceError = CatDatasourceMockErrorImpl();
-    repositorySuccess = CatRepositoryImpl(catDataSource: datasourceSuccess);
-    repositoryError = CatRepositoryImpl(catDataSource: datasourceError);
+    repositorySuccess = CatRepositoryImpl(dataSource: datasourceSuccess);
+    repositoryError = CatRepositoryImpl(dataSource: datasourceError);
   });
 
   group('CatRepositoryImpl', () {

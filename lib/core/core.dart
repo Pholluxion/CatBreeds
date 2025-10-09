@@ -3,7 +3,7 @@ export 'api/interceptors/api_key_interceptor.dart';
 export 'api/request_model.dart';
 export 'error/failure.dart';
 export 'utils/constants.dart';
-export 'di/di_wrapper.dart';
+export 'di/service_locator.dart';
 export 'utils/result.dart';
 export 'utils/usecase.dart';
 export 'widgets/app.dart';

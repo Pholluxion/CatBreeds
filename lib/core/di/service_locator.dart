@@ -1,9 +1,9 @@
-// coverage:ignore-file
+//coverage:ignore-file
 
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 
-abstract class DIWrapper {
+abstract class ServiceLocator {
   void setUpBlocs();
   void setupUseCases();
   void setupRepositories();

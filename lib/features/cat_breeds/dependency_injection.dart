@@ -7,22 +7,21 @@ import 'package:cat_breed/features/cat_breeds/domain/domain.dart';
 import 'package:cat_breed/features/cat_breeds/presentation/presentation.dart';
 import 'package:cat_breed/features/cat_breeds/routes.dart';
 
-class CatDependencyInjection extends DIWrapper {
+class CatDependencyInjection extends ServiceLocator {
   @override
   void setupDataProviders() {
     registerDatasource<CatDatasource>(
       useMock: false,
       datasourceFactory: (useMock) => useMock
-          ? CatDatasourceMockImpl() as CatDatasource
-          : CatDatasourceImpl(httpClient: GetIt.I<HttpClient>())
-                as CatDatasource,
+          ? CatDatasourceMockImpl()
+          : CatDatasourceImpl(httpClient: GetIt.I<HttpClient>()),
     );
   }
 
   @override
   void setupRepositories() {
     GetIt.I.registerLazySingleton<CatRepository>(
-      () => CatRepositoryImpl(catDataSource: GetIt.I<CatDatasource>()),
+      () => CatRepositoryImpl(dataSource: GetIt.I<CatDatasource>()),
     );
   }
 
