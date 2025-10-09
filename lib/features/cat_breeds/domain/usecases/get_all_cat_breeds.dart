@@ -10,6 +10,6 @@ class GetAllCatBreeds implements Usecase<List<CatBreedEntity>, Paginated> {
 
   @override
   Future<Result<List<CatBreedEntity>>> call(Paginated params) async {
-    return await repository.getBreeds(params.page, params.limit);
+    return await repository.getBreeds(page: params.page, limit: params.limit);
   }
 }

@@ -12,11 +12,11 @@ class UINetworkImage extends StatelessWidget {
   final BoxFit fit;
 
   const UINetworkImage({
-    super.key,
     required this.ref,
     required this.width,
     required this.height,
     required this.fit,
+    super.key,
   });
 
   @override

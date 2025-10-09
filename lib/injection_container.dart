@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:cat_breed/core/core.dart';
 import 'package:cat_breed/features/cat_breeds/dependency_injection.dart';
 
-final List<ServiceLocator> _dependencyInjectors = [CatDependencyInjection()];
+final List<ServiceLocator> _serviceLocators = [CatDependencyInjection()];
 final List<RouteBase> _routes = [];
 
 void initializeInjection() {
@@ -17,9 +17,9 @@ void initializeInjection() {
     () => DioHttpClient(dio: GetIt.I<Dio>()),
   );
 
-  for (final diWrapper in _dependencyInjectors) {
-    diWrapper.setupDependencyInjection();
-    _routes.addAll(diWrapper.setupRoutes());
+  for (final serviceLocator in _serviceLocators) {
+    serviceLocator.setupDependencyInjection();
+    _routes.addAll(serviceLocator.setupRoutes());
   }
 
   GetIt.I.registerLazySingleton<GoRouter>(

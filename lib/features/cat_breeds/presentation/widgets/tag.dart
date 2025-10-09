@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 class UITag extends StatelessWidget {
-  const UITag({super.key, required this.text});
+  const UITag({required this.text, super.key});
 
   final String text;
 

@@ -10,13 +10,20 @@ class CatRepositoryImpl implements CatRepository {
   CatRepositoryImpl({required this.dataSource});
 
   @override
-  Future<Result<List<CatBreedEntity>>> getBreeds(int page, int limit) async {
+  Future<Result<List<CatBreedEntity>>> getBreeds({
+    required int page,
+    required int limit,
+  }) async {
     try {
-      final breeds = await dataSource.getBreeds(page, limit);
+      final breeds = await dataSource.getBreeds(page: page, limit: limit);
+
       final entities = breeds
           .map((model) => CatBreedMapper.toEntity(model))
           .toList();
+
       return Right(entities);
+    } on TypeError catch (e) {
+      return Left(Failure('Type error: $e'));
     } catch (e) {
       return Left(Failure('Error fetching breeds: $e'));
     }
@@ -25,7 +32,7 @@ class CatRepositoryImpl implements CatRepository {
   @override
   Future<Result<List<CatBreedEntity>>> getBreedsByQuery(String query) async {
     try {
-      final breeds = await dataSource.getBreedsByQuery(query);
+      final breeds = await dataSource.getBreedsByQuery(query: query);
       final entities = breeds
           .map((model) => CatBreedMapper.toEntity(model))
           .toList();

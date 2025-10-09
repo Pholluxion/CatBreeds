@@ -11,7 +11,7 @@ void main() {
     });
 
     test('Cuando la respuesta es exitosa devuelve lista de razas', () async {
-      final breeds = await datasource.getBreeds(0, 10);
+      final breeds = await datasource.getBreeds(page: 0, limit: 2);
 
       expect(breeds, isA<List<CatBreedModel>>());
 
@@ -31,7 +31,7 @@ void main() {
     test(
       'Cuando se busca una raza por nombre devuelve la raza correcta',
       () async {
-        final breeds = await datasource.getBreedsByQuery('rex');
+        final breeds = await datasource.getBreedsByQuery(query: 'Rex');
 
         expect(breeds, isA<List<CatBreedModel>>());
 

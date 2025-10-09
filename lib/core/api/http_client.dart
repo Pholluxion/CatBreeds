@@ -25,8 +25,6 @@ class DioHttpClient implements HttpClient {
 
     return _dio
         .get(uri.toString(), queryParameters: request.queryParameters)
-        .then((response) {
-          return decoder(response);
-        });
+        .then((response) => decoder(response));
   }
 }

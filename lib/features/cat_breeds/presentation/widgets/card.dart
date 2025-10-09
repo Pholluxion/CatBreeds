@@ -9,7 +9,7 @@ import 'package:cat_breed/features/cat_breeds/routes.dart';
 const whiteColor = Color(0xFFFFFFFF);
 
 class UICard extends StatefulWidget {
-  const UICard({super.key, required this.breed});
+  const UICard({required this.breed, super.key});
   final CatBreedEntity breed;
 
   @override

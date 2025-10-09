@@ -8,6 +8,7 @@ abstract class ServiceLocator {
   void setupUseCases();
   void setupRepositories();
   void setupDataProviders();
+
   void setupDependencyInjection() {
     setupDataProviders();
     setupRepositories();

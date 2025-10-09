@@ -241,7 +241,7 @@ class CatDatasourceMockImpl implements CatDatasource {
   ];
 
   @override
-  Future<List<CatBreedModel>> getBreedsByQuery(String query) async {
+  Future<List<CatBreedModel>> getBreedsByQuery({required String query}) async {
     await Future.delayed(const Duration(seconds: 1));
     return List<CatBreedModel>.from(
       catbreesRawSearch.map((e) => CatBreedModel.fromJson(e)),
@@ -249,7 +249,10 @@ class CatDatasourceMockImpl implements CatDatasource {
   }
 
   @override
-  Future<List<CatBreedModel>> getBreeds(int page, int limit) async {
+  Future<List<CatBreedModel>> getBreeds({
+    required int page,
+    required int limit,
+  }) async {
     await Future.delayed(const Duration(seconds: 1));
     return List<CatBreedModel>.from(
       catbreesRaw.map((e) => CatBreedModel.fromJson(e)),

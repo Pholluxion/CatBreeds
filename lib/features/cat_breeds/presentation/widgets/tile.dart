@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 class UIDataTile extends StatelessWidget {
-  const UIDataTile({super.key, this.title, required this.value});
+  const UIDataTile({required this.value, super.key, this.title});
 
   final String? title;
   final Widget value;

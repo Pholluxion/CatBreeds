@@ -10,8 +10,8 @@ class UIListTile extends StatelessWidget {
   final VoidCallback? onTap;
 
   const UIListTile({
-    super.key,
     required this.title,
+    super.key,
     this.subtitle,
     this.leadingIcon,
     this.trailingIcon,

@@ -10,7 +10,10 @@ class CatDatasourceImpl implements CatDatasource {
     : _httpClient = httpClient;
 
   @override
-  Future<List<CatBreedModel>> getBreeds(int page, int limit) async {
+  Future<List<CatBreedModel>> getBreeds({
+    required int page,
+    required int limit,
+  }) async {
     final request = GetRequestModel(
       baseUrl: Constants.apiURL,
       path: Constants.catBreedsEndpoint,
@@ -28,7 +31,7 @@ class CatDatasourceImpl implements CatDatasource {
   }
 
   @override
-  Future<List<CatBreedModel>> getBreedsByQuery(String query) async {
+  Future<List<CatBreedModel>> getBreedsByQuery({required String query}) async {
     final request = GetRequestModel(
       baseUrl: Constants.apiURL,
       path: Constants.catBreedsSearchEndpoint,

@@ -7,7 +7,7 @@ import 'package:cat_breed/features/cat_breeds/domain/domain.dart';
 import 'package:cat_breed/features/cat_breeds/presentation/presentation.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({super.key, required this.breed});
+  const DetailPage({required this.breed, super.key});
 
   final CatBreedEntity breed;
 

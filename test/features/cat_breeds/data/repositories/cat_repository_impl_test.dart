@@ -21,14 +21,14 @@ void main() {
   group('CatRepositoryImpl', () {
     test('Cuando la respuesta es exitosa devuelve lista de razas', () async {
       final Result<List<CatBreedEntity>> result = await repositorySuccess
-          .getBreeds(0, 2);
+          .getBreeds(page: 0, limit: 2);
       expect(result.isRight(), true);
     });
 
     ///isLeft
     test('Cuando la respuesta es fallida devuelve error', () async {
       final Result<List<CatBreedEntity>> result = await repositoryError
-          .getBreeds(0, 2);
+          .getBreeds(page: 0, limit: 2);
       expect(result.isLeft(), true);
     });
 

@@ -11,7 +11,7 @@ class CatDependencyInjection extends ServiceLocator {
   @override
   void setupDataProviders() {
     registerDatasource<CatDatasource>(
-      useMock: false,
+      useMock: true,
       datasourceFactory: (useMock) => useMock
           ? CatDatasourceMockImpl()
           : CatDatasourceImpl(httpClient: GetIt.I<HttpClient>()),
