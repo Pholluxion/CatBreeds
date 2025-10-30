@@ -3,15 +3,17 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+
 import 'dart:async' as _i5;
 
-import 'package:cat_breed/core/core.dart' as _i7;
-import 'package:cat_breed/features/cat_breeds/data/data.dart' as _i4;
-import 'package:cat_breed/features/cat_breeds/domain/domain.dart' as _i3;
 import 'package:dio/dio.dart' as _i2;
 import 'package:fpdart/src/either.dart' as _i6;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i8;
+
+import 'package:cat_breed/core/core.dart' as _i7;
+import 'package:cat_breed/features/cat_breeds/data/data.dart' as _i4;
+import 'package:cat_breed/features/cat_breeds/domain/domain.dart' as _i3;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

@@ -1,10 +1,9 @@
-import 'package:cat_breed/features/cat_breeds/domain/domain.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:cat_breed/features/cat_breeds/data/data.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:mockito/mockito.dart';
 
+import 'package:cat_breed/features/cat_breeds/data/data.dart';
+import 'package:cat_breed/features/cat_breeds/domain/domain.dart';
 import '../../mocks/mocks.dart';
 import '../../mocks/mocks.mocks.dart';
 

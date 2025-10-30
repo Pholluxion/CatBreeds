@@ -1,5 +1,7 @@
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
+
+import 'package:flutter_test/flutter_test.dart';
+
 import 'package:cat_breed/core/widgets/placeholder.dart';
 
 Widget _wrap(Widget child) => MaterialApp(home: child);

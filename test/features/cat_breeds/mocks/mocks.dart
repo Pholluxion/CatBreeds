@@ -1,7 +1,8 @@
+import 'package:mockito/annotations.dart';
+
 import 'package:cat_breed/core/core.dart';
 import 'package:cat_breed/features/cat_breeds/data/data.dart';
 import 'package:cat_breed/features/cat_breeds/domain/domain.dart';
-import 'package:mockito/annotations.dart';
 
 @GenerateNiceMocks([
   MockSpec<CatDatasource>(),
