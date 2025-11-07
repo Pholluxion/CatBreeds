@@ -30,6 +30,7 @@ dev_dependencies:
   test: ^1.24.0
   build_runner: ^2.4.0
   import_sorter: ^4.6.0
+  mutation_test: ^1.7.0
 
 flutter:
   uses-material-design: true
