@@ -1,0 +1,39 @@
+appId: com.pholluxion.cat_breed
+name: "Infinite Scroll Test"
+tags:
+  - scroll
+  - performance
+---
+# Prueba de scroll infinito y carga de más razas
+
+- launchApp:
+    clearState: true
+
+# Esperar carga inicial
+- extendedWaitUntil:
+    visible: "CatBreeds"
+    timeout: 10000
+
+- waitForAnimationToEnd
+- takeScreenshot: scroll-start
+
+# Hacer scroll múltiples veces para cargar más razas
+- scroll
+- waitForAnimationToEnd
+
+- scroll
+- waitForAnimationToEnd
+
+- scroll
+- waitForAnimationToEnd
+
+- scroll
+- waitForAnimationToEnd
+
+- scroll
+- waitForAnimationToEnd
+
+- takeScreenshot: scroll-end
+
+# Verificar que seguimos en la app (no crasheó)
+- assertVisible: "CatBreeds"

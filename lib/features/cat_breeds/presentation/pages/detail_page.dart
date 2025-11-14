@@ -21,7 +21,7 @@ class DetailPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: AppSpacing.paddingSM,
               child: UINetworkImage(
                 fit: BoxFit.cover,
                 ref: breed.picture.url,
@@ -32,17 +32,14 @@ class DetailPage extends StatelessWidget {
 
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: AppSpacing.paddingLG,
                 child: ListView(
                   children: [
                     UIDataTile(
                       value: Text(
                         breed.name,
                         textAlign: TextAlign.start,
-                        style: const TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: AppTextStyles.bodyLarge,
                       ),
                     ),
                     const SizedBox(height: 8.0),
@@ -116,13 +113,7 @@ class DetailPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 16.0),
-                    const Text(
-                      'Temperament',
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    const Text('Temperament', style: AppTextStyles.bodyLarge),
                     const SizedBox(height: 8.0),
                     Wrap(
                       spacing: 8.0,

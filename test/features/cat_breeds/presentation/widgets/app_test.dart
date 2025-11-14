@@ -22,9 +22,7 @@ void main() {
   testWidgets('UIApp renders CupertinoApp on iOS', (tester) async {
     debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
 
-    final routerConfig = RouterConfig(
-      routerDelegate: _FakeRouterDelegate(),
-    );
+    final routerConfig = RouterConfig(routerDelegate: _FakeRouterDelegate());
 
     await tester.pumpWidget(UIApp(routerConfig: routerConfig));
 
@@ -37,9 +35,7 @@ void main() {
   testWidgets('UIApp renders MaterialApp on Android', (tester) async {
     debugDefaultTargetPlatformOverride = TargetPlatform.android;
 
-    final routerConfig = RouterConfig(
-      routerDelegate: _FakeRouterDelegate(),
-    );
+    final routerConfig = RouterConfig(routerDelegate: _FakeRouterDelegate());
 
     await tester.pumpWidget(UIApp(routerConfig: routerConfig));
 

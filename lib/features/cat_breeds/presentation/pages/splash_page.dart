@@ -7,8 +7,6 @@ import 'package:cat_breed/core/core.dart';
 import 'package:cat_breed/features/cat_breeds/presentation/presentation.dart';
 import 'package:cat_breed/features/cat_breeds/routes.dart';
 
-const kWhiteColor = Color(0xFFFFFFFF);
-
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
 
@@ -25,10 +23,7 @@ class SplashPage extends StatelessWidget {
           spacing: 20,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const Text(
-              'CatBreed',
-              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-            ),
+            const Text('CatBreed', style: AppTextStyles.headlineLarge),
             const SizedBox(height: 100),
             Center(
               child: Image.asset(
@@ -38,10 +33,7 @@ class SplashPage extends StatelessWidget {
               ),
             ),
             const UICircularProgressIndicator(),
-            const Text(
-              'Loading...',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-            ),
+            const Text('Loading...', style: AppTextStyles.headlineSmall),
           ],
         ),
       ),

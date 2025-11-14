@@ -6,11 +6,15 @@ import 'package:cat_breed/core/core.dart';
 import 'package:cat_breed/features/cat_breeds/domain/domain.dart';
 import 'package:cat_breed/features/cat_breeds/routes.dart';
 
-const whiteColor = Color(0xFFFFFFFF);
-
 class UICard extends StatefulWidget {
   const UICard({required this.breed, super.key});
   final CatBreedEntity breed;
+
+  String get cardKey => 'breed_card_${breed.id}';
+  String get nameKey => 'breed_name_${breed.id}';
+  String get detailsKey => 'breed_details_${breed.id}';
+  String get originKey => 'breed_origin_${breed.id}';
+  String get intelligenceKey => 'breed_intelligence_${breed.id}';
 
   @override
   State<UICard> createState() => _UICardState();
@@ -20,15 +24,13 @@ class _UICardState extends State<UICard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: AppSpacing.paddingSM,
       child: GestureDetector(
+        key: Key(widget.cardKey),
         onTap: () =>
             context.pushNamed(CatBreedsRoutes.detail.name, extra: widget.breed),
         child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: const Color.fromRGBO(0, 0, 0, 0.1)),
-          ),
+          decoration: AppDecorations.cardDecoration,
           child: Stack(
             children: [
               UINetworkImage(
@@ -41,28 +43,21 @@ class _UICardState extends State<UICard> {
                 top: 0,
                 left: 0,
                 right: 0,
-                child: Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: const BoxDecoration(
-                    color: Color.fromARGB(200, 0, 0, 0),
-                    borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(12),
-                    ),
-                  ),
-                  child: UIListTile(
-                    title: Text(
-                      widget.breed.name,
-                      style: const TextStyle(
-                        fontSize: 24.0,
-                        fontWeight: FontWeight.bold,
-                        color: whiteColor,
+                child: Semantics(
+                  label: 'breed_card_header',
+                  child: Container(
+                    padding: AppSpacing.paddingMD,
+                    decoration: AppDecorations.overlayTopDecoration,
+                    child: UIListTile(
+                      title: Text(
+                        widget.breed.name,
+                        key: Key(widget.nameKey),
+                        style: AppTextStyles.headlineMediumOnDark,
                       ),
-                    ),
-                    trailingIcon: const Text(
-                      'Details',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: whiteColor,
+                      trailingIcon: Text(
+                        'Details',
+                        key: Key(widget.detailsKey),
+                        style: AppTextStyles.bodyLargeOnDark,
                       ),
                     ),
                   ),
@@ -72,62 +67,48 @@ class _UICardState extends State<UICard> {
                 bottom: 0,
                 left: 0,
                 right: 0,
-                child: Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: const BoxDecoration(
-                    color: Color.fromARGB(200, 0, 0, 0),
-                    borderRadius: BorderRadius.vertical(
-                      bottom: Radius.circular(12),
+                child: Semantics(
+                  label: 'breed_card_footer',
+                  child: Container(
+                    padding: AppSpacing.paddingMD,
+                    decoration: AppDecorations.overlayBottomDecoration,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Flexible(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                'Origin',
+                                style: AppTextStyles.bodySmallOnDark,
+                              ),
+                              Text(
+                                widget.breed.origin,
+                                key: Key(widget.originKey),
+                                style: AppTextStyles.headlineMediumOnDark,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Flexible(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                'Intelligence',
+                                style: AppTextStyles.bodySmallOnDark,
+                              ),
+                              Text(
+                                '${widget.breed.intelligence}/5',
+                                key: Key(widget.intelligenceKey),
+                                style: AppTextStyles.headlineMediumOnDark,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Flexible(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              'Origin',
-                              style: TextStyle(
-                                fontSize: 14.0,
-                                color: whiteColor,
-                              ),
-                            ),
-                            Text(
-                              widget.breed.origin,
-                              style: const TextStyle(
-                                fontSize: 24.0,
-                                color: whiteColor,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Flexible(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              'Intelligence',
-                              style: TextStyle(
-                                fontSize: 14.0,
-                                color: whiteColor,
-                              ),
-                            ),
-                            Text(
-                              '${widget.breed.intelligence}/5',
-                              style: const TextStyle(
-                                fontSize: 24.0,
-                                color: whiteColor,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
                   ),
                 ),
               ),

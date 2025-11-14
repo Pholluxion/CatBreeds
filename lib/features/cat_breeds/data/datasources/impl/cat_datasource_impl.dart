@@ -7,7 +7,7 @@ class CatDatasourceImpl implements CatDatasource {
   final HttpClient _httpClient;
 
   CatDatasourceImpl({required HttpClient httpClient})
-      : _httpClient = httpClient;
+    : _httpClient = httpClient;
 
   @override
   Future<List<CatBreedModel>> getBreeds({

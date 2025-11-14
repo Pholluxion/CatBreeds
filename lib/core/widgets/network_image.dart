@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:shimmer/shimmer.dart';
 
+import 'package:cat_breed/core/app_styles.dart';
 import 'package:cat_breed/core/widgets/placeholder.dart';
 
 class UINetworkImage extends StatelessWidget {
@@ -22,7 +23,7 @@ class UINetworkImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: AppBorderRadius.medium,
       child: CachedNetworkImage(
         width: width,
         height: height,

@@ -1,0 +1,55 @@
+appId: com.pholluxion.cat_breed
+name: "Breed Detail Navigation"
+tags:
+  - detail
+  - navigation
+  - critical
+---
+# Prueba de navegación al detalle de una raza
+- launchApp:
+    clearState: true
+
+# Esperar a que se cargue la home page
+- extendedWaitUntil:
+    visible: "CatBreeds"
+    timeout: 10000
+
+# Esperar a que carguen las tarjetas
+- waitForAnimationToEnd
+
+# Tomar screenshot de home
+- takeScreenshot: home-before-detail
+
+# Hacer scroll para ver más razas
+- scroll
+- scroll
+
+# Tap en la primera tarjeta de raza (usando el botón Details)
+# semanticsLabel: 'breed_name_${widget.breed.name}',
+- tapOn: "breed_card_.*"
+
+# Esperar a que cargue la página de detalle
+- waitForAnimationToEnd
+
+# Tomar screenshot del detalle
+- takeScreenshot: breed-detail-page
+
+# Verificar que estamos en la página de detalle
+- assertVisible: "Origin"
+- assertVisible: "Weight"
+- assertVisible: "Life Span"
+- assertVisible: "Adaptability"
+- assertVisible: "Child Friendly"
+- assertVisible: "Temperament"
+
+# Scroll para ver más información
+- scroll
+
+- takeScreenshot: breed-detail-scrolled
+
+# Volver atrás
+- back
+
+# Verificar que volvimos a home
+- assertVisible: "CatBreeds"
+- assertVisible: "Search breeds"

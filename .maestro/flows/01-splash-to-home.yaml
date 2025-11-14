@@ -1,0 +1,29 @@
+appId: com.pholluxion.cat_breed
+# appId: com.pholluxion.catBreed
+name: "Splash to Home Flow"
+tags:
+  - splash
+  - navigation
+  - smoke
+---
+# Prueba básica de navegación desde splash a home
+- launchApp:
+    clearState: true
+
+# Verificar que estamos en la pantalla de splash
+- assertVisible: "CatBreed"
+- assertVisible: "Loading..."
+
+# Esperar a que se carguen los datos y navegue a home
+- extendedWaitUntil:
+    visible: "CatBreeds"
+    timeout: 15000
+
+# Verificar que estamos en la home page
+- assertVisible: "CatBreeds"
+- assertVisible:
+    text: "Search breeds"
+
+# Tomar screenshot del estado final
+- takeScreenshot: home-page-reached
+# Prueba exitosa: llegamos a la home page

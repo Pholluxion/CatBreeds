@@ -33,13 +33,10 @@ void main() {
 
       // assert
       expect(result, isA<Right>());
-      result.match(
-        (l) => fail('Expected Right, got Left: $l'),
-        (r) {
-          expect(r, isA<List<CatBreedEntity>>());
-          expect(r.first.name, testCatBreedEntity.name);
-        },
-      );
+      result.match((l) => fail('Expected Right, got Left: $l'), (r) {
+        expect(r, isA<List<CatBreedEntity>>());
+        expect(r.first.name, testCatBreedEntity.name);
+      });
     });
 
     test('getBreedsByQuery returns list of CatBreedModel', () async {
@@ -49,18 +46,16 @@ void main() {
       ).thenAnswer((_) async => [testCatBreedModel]);
 
       // act
-      final result =
-          await mockCatRepository.getBreedsByQuery(query: 'Abyssinian');
+      final result = await mockCatRepository.getBreedsByQuery(
+        query: 'Abyssinian',
+      );
 
       // assert
       expect(result, isA<Right>());
-      result.match(
-        (l) => fail('Expected Right, got Left: $l'),
-        (r) {
-          expect(r, isA<List<CatBreedEntity>>());
-          expect(r.first.name, testCatBreedEntity.name);
-        },
-      );
+      result.match((l) => fail('Expected Right, got Left: $l'), (r) {
+        expect(r, isA<List<CatBreedEntity>>());
+        expect(r.first.name, testCatBreedEntity.name);
+      });
     });
 
     test('getBreeds handles exceptions and returns Failure', () async {
@@ -83,8 +78,9 @@ void main() {
       ).thenThrow(Exception('Network error'));
 
       // act
-      final result =
-          await mockCatRepository.getBreedsByQuery(query: 'Abyssinian');
+      final result = await mockCatRepository.getBreedsByQuery(
+        query: 'Abyssinian',
+      );
 
       // assert
       expect(result, isA<Left>());

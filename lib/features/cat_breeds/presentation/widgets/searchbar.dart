@@ -28,6 +28,7 @@ class SearchBar extends StatelessWidget {
             return const SizedBox.shrink();
           }
           return UIIconButton(
+            key: const Key('clear_search_button'),
             onPressed: () {
               searchController.clear();
               onClear();

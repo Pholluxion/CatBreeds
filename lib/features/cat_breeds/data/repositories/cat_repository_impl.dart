@@ -17,8 +17,9 @@ class CatRepositoryImpl implements CatRepository {
     try {
       final breeds = await dataSource.getBreeds(page: page, limit: limit);
 
-      final entities =
-          breeds.map((model) => CatBreedMapper.toEntity(model: model)).toList();
+      final entities = breeds
+          .map((model) => CatBreedMapper.toEntity(model: model))
+          .toList();
 
       return Right(entities);
     } catch (e) {
@@ -32,8 +33,9 @@ class CatRepositoryImpl implements CatRepository {
   }) async {
     try {
       final breeds = await dataSource.getBreedsByQuery(query: query);
-      final entities =
-          breeds.map((model) => CatBreedMapper.toEntity(model: model)).toList();
+      final entities = breeds
+          .map((model) => CatBreedMapper.toEntity(model: model))
+          .toList();
       return Right(entities);
     } catch (e) {
       return Left(Failure('Error fetching breeds by query: $e'));

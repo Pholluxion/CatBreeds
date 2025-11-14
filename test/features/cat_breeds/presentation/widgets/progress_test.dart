@@ -27,9 +27,7 @@ void main() {
       debugDefaultTargetPlatformOverride = TargetPlatform.android;
 
       await tester.pumpWidget(
-        const MaterialApp(
-          home: Scaffold(body: UICircularProgressIndicator()),
-        ),
+        const MaterialApp(home: Scaffold(body: UICircularProgressIndicator())),
       );
 
       expect(find.byType(CircularProgressIndicator), findsOneWidget);

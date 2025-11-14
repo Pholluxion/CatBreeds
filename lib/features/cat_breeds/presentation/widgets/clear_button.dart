@@ -10,13 +10,19 @@ class UIIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      key: key,
       onTap: onPressed,
       child: switch (defaultTargetPlatform) {
         TargetPlatform.iOS => const Icon(
           CupertinoIcons.clear,
           color: CupertinoColors.systemGrey,
+          semanticLabel: 'Clear',
         ),
-        _ => const Icon(Icons.clear, color: Colors.grey),
+        _ => const Icon(
+          Icons.clear,
+          color: Colors.grey,
+          semanticLabel: 'Clear',
+        ),
       },
     );
   }

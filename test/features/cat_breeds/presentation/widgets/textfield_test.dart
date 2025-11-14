@@ -14,9 +14,7 @@ void main() {
       debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
 
       await tester.pumpWidget(
-        _wrap(
-          const UITextField(placeholder: 'Search...'),
-        ),
+        _wrap(const UITextField(placeholder: 'Search...')),
       );
 
       expect(find.byType(CupertinoTextField), findsOneWidget);
@@ -30,9 +28,7 @@ void main() {
       debugDefaultTargetPlatformOverride = TargetPlatform.android;
 
       await tester.pumpWidget(
-        _wrap(
-          const UITextField(placeholder: 'Search...'),
-        ),
+        _wrap(const UITextField(placeholder: 'Search...')),
       );
 
       expect(find.byType(TextField), findsOneWidget);
@@ -81,9 +77,7 @@ void main() {
     testWidgets('tap outside unfocuses the field on Android', (tester) async {
       final controller = TextEditingController();
 
-      await tester.pumpWidget(
-        _wrap(UITextField(controller: controller)),
-      );
+      await tester.pumpWidget(_wrap(UITextField(controller: controller)));
 
       await tester.tap(find.byType(TextField));
       await tester.pumpAndSettle();

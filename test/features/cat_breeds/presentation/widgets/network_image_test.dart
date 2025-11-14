@@ -26,17 +26,20 @@ void main() {
       );
     }
 
-    testWidgets('shows placeholder while loading image',
-        (WidgetTester tester) async {
-      await tester
-          .pumpWidget(buildTestWidget('https://fake-image-url.com/image.jpg'));
+    testWidgets('shows placeholder while loading image', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidget(
+        buildTestWidget('https://fake-image-url.com/image.jpg'),
+      );
 
       // placeholder es UIPlaceholder dentro de Shimmer
       expect(find.byType(UIPlaceholder), findsOneWidget);
     });
 
-    testWidgets('shows errorWidget when image fails to load',
-        (WidgetTester tester) async {
+    testWidgets('shows errorWidget when image fails to load', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(buildTestWidget('https://invalid/image.jpg'));
 
       expect(find.byType(UIPlaceholder), findsOneWidget);
@@ -46,8 +49,9 @@ void main() {
       expect(find.byType(UIPlaceholder), findsOneWidget);
     });
 
-    testWidgets('shows image when loaded successfully',
-        (WidgetTester tester) async {
+    testWidgets('shows image when loaded successfully', (
+      WidgetTester tester,
+    ) async {
       (WidgetTester tester) async {
         await tester.pumpWidget(
           buildTestWidget(

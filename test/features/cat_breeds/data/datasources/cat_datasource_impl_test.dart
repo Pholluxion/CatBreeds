@@ -17,57 +17,46 @@ void main() {
 
   group('CatApiDatasource', () {
     test(
-        'make correct http request with empty response then returns empty list',
-        () async {
-      // arrange
-      when(
-        mockHttpClient.get(any),
-      ).thenAnswer(
-        (_) async => Response<dynamic>(
-          data: [],
-          requestOptions: RequestOptions(),
-        ),
-      );
+      'make correct http request with empty response then returns empty list',
+      () async {
+        // arrange
+        when(mockHttpClient.get(any)).thenAnswer(
+          (_) async =>
+              Response<dynamic>(data: [], requestOptions: RequestOptions()),
+        );
 
-      // act
-      final result = await mockCatDatasource.getBreeds(
-        limit: 10,
-        page: 1,
-      );
+        // act
+        final result = await mockCatDatasource.getBreeds(limit: 10, page: 1);
 
-      // assert
-      expect(result, isEmpty);
-    });
+        // assert
+        expect(result, isEmpty);
+      },
+    );
 
-    test('make correct http request with data then returns list of models',
-        () async {
-      // arrange
-      when(
-        mockHttpClient.get(any),
-      ).thenAnswer(
-        (_) async => Response(
-          data: [mockCatBreedJson],
-          requestOptions: RequestOptions(),
-        ),
-      );
+    test(
+      'make correct http request with data then returns list of models',
+      () async {
+        // arrange
+        when(mockHttpClient.get(any)).thenAnswer(
+          (_) async => Response(
+            data: [mockCatBreedJson],
+            requestOptions: RequestOptions(),
+          ),
+        );
 
-      // act
-      final result = await mockCatDatasource.getBreeds(
-        limit: 10,
-        page: 1,
-      );
+        // act
+        final result = await mockCatDatasource.getBreeds(limit: 10, page: 1);
 
-      // assert
-      expect(result, isA<List<CatBreedModel>>());
-      expect(result.length, 1);
-      expect(result.first.name, 'Abyssinian');
-    });
+        // assert
+        expect(result, isA<List<CatBreedModel>>());
+        expect(result.length, 1);
+        expect(result.first.name, 'Abyssinian');
+      },
+    );
 
     test('getBreedsByQuery returns list of CatBreedModel', () async {
       // arrange
-      when(
-        mockHttpClient.get(any),
-      ).thenAnswer(
+      when(mockHttpClient.get(any)).thenAnswer(
         (_) async => Response(
           requestOptions: RequestOptions(),
           data: [mockCatBreedJson],
@@ -75,8 +64,9 @@ void main() {
       );
 
       // act
-      final call =
-          await mockCatDatasource.getBreedsByQuery(query: 'Abyssinian');
+      final call = await mockCatDatasource.getBreedsByQuery(
+        query: 'Abyssinian',
+      );
 
       // assert
       expect(call, isA<List<CatBreedModel>>());

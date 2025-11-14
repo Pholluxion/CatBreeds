@@ -33,16 +33,14 @@ void main() {
       debugDefaultTargetPlatformOverride = null; // reset
     });
 
-    testWidgets('renders CupertinoListTile on iOS',
-        (WidgetTester tester) async {
+    testWidgets('renders CupertinoListTile on iOS', (
+      WidgetTester tester,
+    ) async {
       debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
 
       await tester.pumpWidget(
         const CupertinoApp(
-          home: UIListTile(
-            title: Text('Title'),
-            subtitle: Text('Subtitle'),
-          ),
+          home: UIListTile(title: Text('Title'), subtitle: Text('Subtitle')),
         ),
       );
 

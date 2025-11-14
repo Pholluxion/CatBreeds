@@ -7,11 +7,10 @@ import 'package:cat_breed/core/widgets/placeholder.dart';
 Widget _wrap(Widget child) => MaterialApp(home: child);
 
 void main() {
-  testWidgets('UIPlaceholder displays the asset image',
-      (WidgetTester tester) async {
-    await tester.pumpWidget(
-      _wrap(const UIPlaceholder(width: 120, height: 80)),
-    );
+  testWidgets('UIPlaceholder displays the asset image', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(_wrap(const UIPlaceholder(width: 120, height: 80)));
 
     expect(find.byType(UIPlaceholder), findsOneWidget);
 
@@ -22,8 +21,9 @@ void main() {
     expect(assetImage.assetName, 'assets/images/placeholder.jpg');
   });
 
-  testWidgets('UIPlaceholder applies given width and height',
-      (WidgetTester tester) async {
+  testWidgets('UIPlaceholder applies given width and height', (
+    WidgetTester tester,
+  ) async {
     const width = 150.0;
     const height = 90.0;
 

@@ -1,6 +1,7 @@
 export 'api/http_client.dart';
 export 'api/interceptors/api_key_interceptor.dart';
 export 'api/request_model.dart';
+export 'app_styles.dart';
 export 'di/service_locator.dart';
 export 'error/failure.dart';
 export 'utils/constants.dart';

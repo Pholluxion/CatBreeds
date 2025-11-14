@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'package:cat_breed/core/app_styles.dart';
+
 class UITextField extends StatelessWidget {
   const UITextField({
     super.key,
@@ -25,7 +27,7 @@ class UITextField extends StatelessWidget {
         onChanged: onChanged,
         suffix: suffix,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8.0),
+          borderRadius: AppBorderRadius.small,
           border: Border.all(color: CupertinoColors.systemGrey4),
         ),
         onTapOutside: (_) => FocusScope.of(context).unfocus(),
@@ -37,7 +39,7 @@ class UITextField extends StatelessWidget {
           suffixIcon: suffix,
           hintText: placeholder,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.0),
+            borderRadius: AppBorderRadius.small,
             borderSide: const BorderSide(color: Colors.grey),
           ),
         ),

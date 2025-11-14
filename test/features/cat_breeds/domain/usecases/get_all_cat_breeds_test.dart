@@ -40,32 +40,29 @@ void main() {
       );
     });
 
-    test('should return list of CatBreedEntity when breeds are found',
-        () async {
-      // arrange
-      provideDummy<Either<Failure, List<CatBreedEntity>>>(
-        Right(<CatBreedEntity>[mockCatBreedEntity]),
-      );
+    test(
+      'should return list of CatBreedEntity when breeds are found',
+      () async {
+        // arrange
+        provideDummy<Either<Failure, List<CatBreedEntity>>>(
+          Right(<CatBreedEntity>[mockCatBreedEntity]),
+        );
 
-      when(
-        mockCatRepository.getBreeds(limit: 10, page: 1),
-      ).thenAnswer(
-        (_) async => Right(<CatBreedEntity>[mockCatBreedEntity]),
-      );
+        when(
+          mockCatRepository.getBreeds(limit: 10, page: 1),
+        ).thenAnswer((_) async => Right(<CatBreedEntity>[mockCatBreedEntity]));
 
-      // act
-      final result = await getAllCatBreeds((page: 1, limit: 10));
+        // act
+        final result = await getAllCatBreeds((page: 1, limit: 10));
 
-      // assert
-      expect(result, isA<Right>());
-      result.match(
-        (l) => fail('Expected Right, got Left: $l'),
-        (r) {
+        // assert
+        expect(result, isA<Right>());
+        result.match((l) => fail('Expected Right, got Left: $l'), (r) {
           expect(r, isA<List<CatBreedEntity>>());
           expect(r.first.name, mockCatBreedEntity.name);
-        },
-      );
-    });
+        });
+      },
+    );
 
     test('should return Failure when repository throws an exception', () async {
       // arrange

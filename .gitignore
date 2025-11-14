@@ -56,3 +56,20 @@ coverage/html/
 
 # vscode settings
 .vscode/
+
+# Maestro screenshots
+screenshots/
+*.png
+*.jpg
+*.jpeg
+
+# Maestro videos
+*.mp4
+*.mov
+
+# Test results
+test-results.xml
+*.log
+
+# Temporary files
+.DS_Store

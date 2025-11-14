@@ -28,9 +28,7 @@ void main() {
 
       when(
         mockCatRepository.getBreedsByQuery(query: 'Abyssinian'),
-      ).thenAnswer(
-        (_) async => const Right(<CatBreedEntity>[]),
-      );
+      ).thenAnswer((_) async => const Right(<CatBreedEntity>[]));
 
       // act
       final result = await searchCatBreeds('Abyssinian');
@@ -42,31 +40,28 @@ void main() {
       );
     });
 
-    test('should return list of CatBreedEntity when breeds are found',
-        () async {
-      // arrange
-      provideDummy<Either<Failure, List<CatBreedEntity>>>(
-        Right(<CatBreedEntity>[mockCatBreedEntity]),
-      );
+    test(
+      'should return list of CatBreedEntity when breeds are found',
+      () async {
+        // arrange
+        provideDummy<Either<Failure, List<CatBreedEntity>>>(
+          Right(<CatBreedEntity>[mockCatBreedEntity]),
+        );
 
-      when(
-        mockCatRepository.getBreedsByQuery(query: 'Abyssinian'),
-      ).thenAnswer(
-        (_) async => Right(<CatBreedEntity>[mockCatBreedEntity]),
-      );
+        when(
+          mockCatRepository.getBreedsByQuery(query: 'Abyssinian'),
+        ).thenAnswer((_) async => Right(<CatBreedEntity>[mockCatBreedEntity]));
 
-      // act
-      final result = await searchCatBreeds('Abyssinian');
+        // act
+        final result = await searchCatBreeds('Abyssinian');
 
-      // assert
-      result.fold(
-        (l) => fail('Expected Right but got Left'),
-        (r) {
+        // assert
+        result.fold((l) => fail('Expected Right but got Left'), (r) {
           expect(r, isNotEmpty);
           expect(r.first.name, mockCatBreedEntity.name);
-        },
-      );
-    });
+        });
+      },
+    );
 
     test('should return Failure when repository throws an exception', () async {
       // arrange

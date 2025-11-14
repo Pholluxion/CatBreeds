@@ -1,0 +1,57 @@
+appId: com.pholluxion.cat_breed
+name: "Search Cat Breeds"
+tags:
+  - search
+  - filtering
+  - critical
+---
+# Prueba de búsqueda de razas de gatos
+- launchApp:
+    clearState: true
+
+# Esperar a que se cargue la home page
+- extendedWaitUntil:
+    visible: "CatBreeds"
+    timeout: 10000
+
+# Esperar a que carguen las tarjetas
+- waitForAnimationToEnd
+
+# Tomar screenshot del estado inicial
+- takeScreenshot: home-initial
+
+# Verificar que el campo de búsqueda está presente
+- assertVisible:
+    text: "Search breeds"
+
+# Realizar búsqueda por "Persian"
+- tapOn:
+    text: "Search breeds"
+- inputText: "Persian"
+
+# Esperar resultados de búsqueda
+- waitForAnimationToEnd
+
+# Tomar screenshot de resultados
+- takeScreenshot: search-results-persian
+
+# Verificar que hay resultados
+- extendedWaitUntil:
+    visible: "Persian"
+    timeout: 5000
+
+# Limpiar búsqueda usando el botón clear
+- tapOn: Clear
+
+# Verificar que el campo está vacío y vuelven los resultados
+- waitForAnimationToEnd
+- takeScreenshot: search-cleared
+
+# Buscar algo que no existe
+- tapOn:
+    text: "Search breeds"
+- inputText: "XYZABC123"
+- waitForAnimationToEnd
+
+# Verificar mensaje o estado vacío (si aplica)
+- takeScreenshot: search-no-results

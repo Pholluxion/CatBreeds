@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: AppSpacing.paddingLG,
               child: SearchBar(
                 searchController: searchController,
                 onInputChanged: (value) {
@@ -49,20 +49,20 @@ class _HomePageState extends State<HomePage> {
                 builder: (context, state) {
                   return switch (state) {
                     CatBreedLoadingState() => const Center(
-                        child: UICircularProgressIndicator(),
-                      ),
+                      child: UICircularProgressIndicator(),
+                    ),
                     CatBreedLoadError() => const Center(
-                        child: Text('Failed to fetch breeds'),
-                      ),
+                      child: Text('Failed to fetch breeds'),
+                    ),
                     CatBreedLoadedState(:final breeds) => ListView.builder(
-                        itemCount: breeds.length,
-                        controller: scrollController,
-                        itemBuilder: (BuildContext context, int index) =>
-                            UICard(breed: breeds.elementAt(index)),
-                      ),
+                      itemCount: breeds.length,
+                      controller: scrollController,
+                      itemBuilder: (BuildContext context, int index) =>
+                          UICard(breed: breeds.elementAt(index)),
+                    ),
                     CatBreedEmptyState() => const Center(
-                        child: Text('No breeds found'),
-                      ),
+                      child: Text('No breeds found'),
+                    ),
                   };
                 },
               ),
