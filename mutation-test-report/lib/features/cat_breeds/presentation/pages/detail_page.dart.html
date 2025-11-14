@@ -360,10 +360,10 @@ td.barBg
 
      <tr>
      <td class="ItemLabel" width="10%">Date:</td>
-     <td class="ItemText" width="35%">2025-11-07 11:40:00.296786</td>
+     <td class="ItemText" width="35%">2025-11-14 11:53:08.058751</td>
      <td class="ItemLabel" width="10%">Mutations:</td>
      <td class="ItemReport" width="15%">0</td>
-     <td class="ItemReport" width="15%">33</td>
+     <td class="ItemReport" width="15%">29</td>
      <td class="ItemReportLow" width="15%">0.0 %</td>
      </tr>
      
@@ -372,7 +372,7 @@ td.barBg
      <td class="ItemText" width="35%">true</td>
      <td class="ItemLabel" width="10%">Blocked:</td>
      <td class="ItemReport" width="15%">0</td>
-     <td class="ItemReport" width="15%">33</td>
+     <td class="ItemReport" width="15%">29</td>
      <td class="ItemReportHigh" width="15%">0.0 %</td>
      </tr>
      </tbody>
@@ -415,13 +415,8 @@ td.barBg
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+           children<span class="changedTokens">: []</span>,</span></td><td class="match">RegExp: pattern=([=:>]\s*)\[([^\],]+),([^\]]+)\] flags=m<span class="tooltip">Id: builtin.list.clear</span></td></tr></table>
 
 </div></a><a name="23"><span class="lineNumber">      23 </span>            Padding(</a>
-<a name="24"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      24 </span>              padding: const EdgeInsets.all(8.0),</pre></button>
-<div class="content">
-<b>Undetected mutations:</b>
-<table class="mutationTable" width="100%">
-<tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+               padding: const EdgeInsets.all<span class="changedTokens">(-8.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
-
-</div></a><a name="25"><span class="lineNumber">      25 </span>              child: UINetworkImage(</a>
+<a name="24"><span class="lineNumber">      24 </span>              padding: AppSpacing.paddingSM,</a>
+<a name="25"><span class="lineNumber">      25 </span>              child: UINetworkImage(</a>
 <a name="26"><span class="lineNumber">      26 </span>                fit: BoxFit.cover,</a>
 <a name="27"><span class="lineNumber">      27 </span>                ref: breed.picture.url,</a>
 <a name="28"><span class="lineNumber">      28 </span>                width: double.infinity,</a>
@@ -436,258 +431,234 @@ td.barBg
 <a name="32"><span class="lineNumber">      32 </span></a>
 <a name="33"><span class="lineNumber">      33 </span>            Expanded(</a>
 <a name="34"><span class="lineNumber">      34 </span>              child: Padding(</a>
-<a name="35"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      35 </span>                padding: const EdgeInsets.all(16.0),</pre></button>
-<div class="content">
-<b>Undetected mutations:</b>
-<table class="mutationTable" width="100%">
-<tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                 padding: const EdgeInsets.all<span class="changedTokens">(-16.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
-
-</div></a><a name="36"><span class="lineNumber">      36 </span>                child: ListView(</a>
+<a name="35"><span class="lineNumber">      35 </span>                padding: AppSpacing.paddingLG,</a>
+<a name="36"><span class="lineNumber">      36 </span>                child: ListView(</a>
 <a name="37"><span class="lineNumber">      37 </span>                  children: [</a>
 <a name="38"><span class="lineNumber">      38 </span>                    UIDataTile(</a>
 <a name="39"><span class="lineNumber">      39 </span>                      value: Text(</a>
 <a name="40"><span class="lineNumber">      40 </span>                        breed.name,</a>
 <a name="41"><span class="lineNumber">      41 </span>                        textAlign: TextAlign.start,</a>
-<a name="42"><span class="lineNumber">      42 </span>                        style: const TextStyle(</a>
-<a name="43"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      43 </span>                          fontSize: 16.0,</pre></button>
-<div class="content">
-<b>Undetected mutations:</b>
-<table class="mutationTable" width="100%">
-<tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                           fontSize:<span class="changedTokens"> -16.0</span>,</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
-
-</div></a><a name="44"><span class="lineNumber">      44 </span>                          fontWeight: FontWeight.bold,</a>
-<a name="45"><span class="lineNumber">      45 </span>                        ),</a>
-<a name="46"><span class="lineNumber">      46 </span>                      ),</a>
-<a name="47"><span class="lineNumber">      47 </span>                    ),</a>
-<a name="48"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      48 </span>                    const SizedBox(height: 8.0),</pre></button>
+<a name="42"><span class="lineNumber">      42 </span>                        style: AppTextStyles.bodyLarge,</a>
+<a name="43"><span class="lineNumber">      43 </span>                      ),</a>
+<a name="44"><span class="lineNumber">      44 </span>                    ),</a>
+<a name="45"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      45 </span>                    const SizedBox(height: 8.0),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                     const SizedBox(height:<span class="changedTokens"> -8.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="49"><span class="lineNumber">      49 </span>                    Text(breed.description),</a>
-<a name="50"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      50 </span>                    const SizedBox(height: 16.0),</pre></button>
+</div></a><a name="46"><span class="lineNumber">      46 </span>                    Text(breed.description),</a>
+<a name="47"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      47 </span>                    const SizedBox(height: 16.0),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                     const SizedBox(height:<span class="changedTokens"> -16.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="51"><span class="lineNumber">      51 </span>                    UIDataTile(title: 'Origin: ', value: Text(breed.origin)),</a>
-<a name="52"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      52 </span>                    const SizedBox(height: 8.0),</pre></button>
+</div></a><a name="48"><span class="lineNumber">      48 </span>                    UIDataTile(title: 'Origin: ', value: Text(breed.origin)),</a>
+<a name="49"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      49 </span>                    const SizedBox(height: 8.0),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                     const SizedBox(height:<span class="changedTokens"> -8.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="53"><span class="lineNumber">      53 </span>                    UIDataTile(</a>
-<a name="54"><span class="lineNumber">      54 </span>                      title: 'Weight: ',</a>
-<a name="55"><span class="lineNumber">      55 </span>                      value: Text('${breed.weight.metric} kg'),</a>
-<a name="56"><span class="lineNumber">      56 </span>                    ),</a>
-<a name="57"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      57 </span>                    const SizedBox(height: 8.0),</pre></button>
+</div></a><a name="50"><span class="lineNumber">      50 </span>                    UIDataTile(</a>
+<a name="51"><span class="lineNumber">      51 </span>                      title: 'Weight: ',</a>
+<a name="52"><span class="lineNumber">      52 </span>                      value: Text('${breed.weight.metric} kg'),</a>
+<a name="53"><span class="lineNumber">      53 </span>                    ),</a>
+<a name="54"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      54 </span>                    const SizedBox(height: 8.0),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                     const SizedBox(height:<span class="changedTokens"> -8.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="58"><span class="lineNumber">      58 </span>                    UIDataTile(</a>
-<a name="59"><span class="lineNumber">      59 </span>                      title: 'Life Span: ',</a>
-<a name="60"><span class="lineNumber">      60 </span>                      value: Text('${breed.lifeSpan} years'),</a>
-<a name="61"><span class="lineNumber">      61 </span>                    ),</a>
-<a name="62"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      62 </span>                    const SizedBox(height: 8.0),</pre></button>
+</div></a><a name="55"><span class="lineNumber">      55 </span>                    UIDataTile(</a>
+<a name="56"><span class="lineNumber">      56 </span>                      title: 'Life Span: ',</a>
+<a name="57"><span class="lineNumber">      57 </span>                      value: Text('${breed.lifeSpan} years'),</a>
+<a name="58"><span class="lineNumber">      58 </span>                    ),</a>
+<a name="59"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      59 </span>                    const SizedBox(height: 8.0),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                     const SizedBox(height:<span class="changedTokens"> -8.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="63"><span class="lineNumber">      63 </span>                    UIDataTile(</a>
-<a name="64"><span class="lineNumber">      64 </span>                      title: 'Adaptability: ',</a>
-<a name="65"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      65 </span>                      value: Text('${breed.adaptability} / 5'),</pre></button>
+</div></a><a name="60"><span class="lineNumber">      60 </span>                    UIDataTile(</a>
+<a name="61"><span class="lineNumber">      61 </span>                      title: 'Adaptability: ',</a>
+<a name="62"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      62 </span>                      value: Text('${breed.adaptability} / 5'),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                       value: Text('${breed.adaptability} <span class="changedTokens">* </span>5'),</span></td><td class="match">RegExp: pattern=/([^=]) flags=m<span class="tooltip">Id: builtin.arith.div</span></td></tr></table>
 
-</div></a><a name="66"><span class="lineNumber">      66 </span>                    ),</a>
-<a name="67"><span class="lineNumber">      67 </span>                    UIDataTile(</a>
-<a name="68"><span class="lineNumber">      68 </span>                      title: 'Child Friendly: ',</a>
-<a name="69"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      69 </span>                      value: Text('${breed.childFriendly} / 5'),</pre></button>
+</div></a><a name="63"><span class="lineNumber">      63 </span>                    ),</a>
+<a name="64"><span class="lineNumber">      64 </span>                    UIDataTile(</a>
+<a name="65"><span class="lineNumber">      65 </span>                      title: 'Child Friendly: ',</a>
+<a name="66"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      66 </span>                      value: Text('${breed.childFriendly} / 5'),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                       value: Text('${breed.childFriendly} <span class="changedTokens">* </span>5'),</span></td><td class="match">RegExp: pattern=/([^=]) flags=m<span class="tooltip">Id: builtin.arith.div</span></td></tr></table>
 
-</div></a><a name="70"><span class="lineNumber">      70 </span>                    ),</a>
-<a name="71"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      71 </span>                    const SizedBox(height: 8.0),</pre></button>
+</div></a><a name="67"><span class="lineNumber">      67 </span>                    ),</a>
+<a name="68"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      68 </span>                    const SizedBox(height: 8.0),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                     const SizedBox(height:<span class="changedTokens"> -8.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="72"><span class="lineNumber">      72 </span>                    UIDataTile(</a>
-<a name="73"><span class="lineNumber">      73 </span>                      title: 'Affection Level: ',</a>
-<a name="74"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      74 </span>                      value: Text('${breed.affectionLevel} / 5'),</pre></button>
+</div></a><a name="69"><span class="lineNumber">      69 </span>                    UIDataTile(</a>
+<a name="70"><span class="lineNumber">      70 </span>                      title: 'Affection Level: ',</a>
+<a name="71"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      71 </span>                      value: Text('${breed.affectionLevel} / 5'),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                       value: Text('${breed.affectionLevel} <span class="changedTokens">* </span>5'),</span></td><td class="match">RegExp: pattern=/([^=]) flags=m<span class="tooltip">Id: builtin.arith.div</span></td></tr></table>
 
-</div></a><a name="75"><span class="lineNumber">      75 </span>                    ),</a>
-<a name="76"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      76 </span>                    const SizedBox(height: 8.0),</pre></button>
+</div></a><a name="72"><span class="lineNumber">      72 </span>                    ),</a>
+<a name="73"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      73 </span>                    const SizedBox(height: 8.0),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                     const SizedBox(height:<span class="changedTokens"> -8.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="77"><span class="lineNumber">      77 </span>                    UIDataTile(</a>
-<a name="78"><span class="lineNumber">      78 </span>                      title: 'Intelligence: ',</a>
-<a name="79"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      79 </span>                      value: Text('${breed.intelligence} / 5'),</pre></button>
+</div></a><a name="74"><span class="lineNumber">      74 </span>                    UIDataTile(</a>
+<a name="75"><span class="lineNumber">      75 </span>                      title: 'Intelligence: ',</a>
+<a name="76"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      76 </span>                      value: Text('${breed.intelligence} / 5'),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                       value: Text('${breed.intelligence} <span class="changedTokens">* </span>5'),</span></td><td class="match">RegExp: pattern=/([^=]) flags=m<span class="tooltip">Id: builtin.arith.div</span></td></tr></table>
 
-</div></a><a name="80"><span class="lineNumber">      80 </span>                    ),</a>
-<a name="81"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      81 </span>                    const SizedBox(height: 8.0),</pre></button>
+</div></a><a name="77"><span class="lineNumber">      77 </span>                    ),</a>
+<a name="78"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      78 </span>                    const SizedBox(height: 8.0),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                     const SizedBox(height:<span class="changedTokens"> -8.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="82"><span class="lineNumber">      82 </span>                    UIDataTile(</a>
-<a name="83"><span class="lineNumber">      83 </span>                      title: 'Energy Level: ',</a>
-<a name="84"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      84 </span>                      value: Text('${breed.energyLevel} / 5'),</pre></button>
+</div></a><a name="79"><span class="lineNumber">      79 </span>                    UIDataTile(</a>
+<a name="80"><span class="lineNumber">      80 </span>                      title: 'Energy Level: ',</a>
+<a name="81"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      81 </span>                      value: Text('${breed.energyLevel} / 5'),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                       value: Text('${breed.energyLevel} <span class="changedTokens">* </span>5'),</span></td><td class="match">RegExp: pattern=/([^=]) flags=m<span class="tooltip">Id: builtin.arith.div</span></td></tr></table>
 
-</div></a><a name="85"><span class="lineNumber">      85 </span>                    ),</a>
-<a name="86"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      86 </span>                    const SizedBox(height: 8.0),</pre></button>
+</div></a><a name="82"><span class="lineNumber">      82 </span>                    ),</a>
+<a name="83"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      83 </span>                    const SizedBox(height: 8.0),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                     const SizedBox(height:<span class="changedTokens"> -8.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="87"><span class="lineNumber">      87 </span>                    UIDataTile(</a>
-<a name="88"><span class="lineNumber">      88 </span>                      title: 'Dog Friendly: ',</a>
-<a name="89"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      89 </span>                      value: Text(breed.dogFriendly == 0 ? 'Yes' : 'No'),</pre></button>
+</div></a><a name="84"><span class="lineNumber">      84 </span>                    UIDataTile(</a>
+<a name="85"><span class="lineNumber">      85 </span>                      title: 'Dog Friendly: ',</a>
+<a name="86"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      86 </span>                      value: Text(breed.dogFriendly == 0 ? 'Yes' : 'No'),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                       value: Text(breed.dogFriendly <span class="changedTokens">!=</span> 0 ? 'Yes' : 'No'),</span></td><td class="match">==<span class="tooltip">Id: builtin.op.eq</span></td></tr></table>
 
-</div></a><a name="90"><span class="lineNumber">      90 </span>                    ),</a>
-<a name="91"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      91 </span>                    const SizedBox(height: 8.0),</pre></button>
+</div></a><a name="87"><span class="lineNumber">      87 </span>                    ),</a>
+<a name="88"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      88 </span>                    const SizedBox(height: 8.0),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                     const SizedBox(height:<span class="changedTokens"> -8.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="92"><span class="lineNumber">      92 </span>                    UIDataTile(</a>
-<a name="93"><span class="lineNumber">      93 </span>                      title: 'Hypoallergenic: ',</a>
-<a name="94"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      94 </span>                      value: Text(breed.hypoallergenic == 0 ? 'Yes' : 'No'),</pre></button>
+</div></a><a name="89"><span class="lineNumber">      89 </span>                    UIDataTile(</a>
+<a name="90"><span class="lineNumber">      90 </span>                      title: 'Hypoallergenic: ',</a>
+<a name="91"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      91 </span>                      value: Text(breed.hypoallergenic == 0 ? 'Yes' : 'No'),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                       value: Text(breed.hypoallergenic <span class="changedTokens">!=</span> 0 ? 'Yes' : 'No'),</span></td><td class="match">==<span class="tooltip">Id: builtin.op.eq</span></td></tr></table>
 
-</div></a><a name="95"><span class="lineNumber">      95 </span>                    ),</a>
-<a name="96"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      96 </span>                    const SizedBox(height: 8.0),</pre></button>
+</div></a><a name="92"><span class="lineNumber">      92 </span>                    ),</a>
+<a name="93"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      93 </span>                    const SizedBox(height: 8.0),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                     const SizedBox(height:<span class="changedTokens"> -8.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="97"><span class="lineNumber">      97 </span>                    UIDataTile(</a>
-<a name="98"><span class="lineNumber">      98 </span>                      title: 'Lap Cat: ',</a>
-<a name="99"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      99 </span>                      value: Text(breed.isLapCat == 0 ? 'Yes' : 'No'),</pre></button>
+</div></a><a name="94"><span class="lineNumber">      94 </span>                    UIDataTile(</a>
+<a name="95"><span class="lineNumber">      95 </span>                      title: 'Lap Cat: ',</a>
+<a name="96"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      96 </span>                      value: Text(breed.isLapCat == 0 ? 'Yes' : 'No'),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                       value: Text(breed.isLapCat <span class="changedTokens">!=</span> 0 ? 'Yes' : 'No'),</span></td><td class="match">==<span class="tooltip">Id: builtin.op.eq</span></td></tr></table>
 
-</div></a><a name="100"><span class="lineNumber">     100 </span>                    ),</a>
-<a name="101"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">     101 </span>                    const SizedBox(height: 8.0),</pre></button>
+</div></a><a name="97"><span class="lineNumber">      97 </span>                    ),</a>
+<a name="98"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      98 </span>                    const SizedBox(height: 8.0),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                     const SizedBox(height:<span class="changedTokens"> -8.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="102"><span class="lineNumber">     102 </span>                    UIDataTile(</a>
-<a name="103"><span class="lineNumber">     103 </span>                      title: 'Wikipedia URL: ',</a>
-<a name="104"><span class="lineNumber">     104 </span>                      value: GestureDetector(</a>
-<a name="105"><span class="lineNumber">     105 </span>                        onTap: () {</a>
-<a name="106"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">     106 </span>                          if (breed.wikipediaUrl.isNotEmpty) {</pre></button>
+</div></a><a name="99"><span class="lineNumber">      99 </span>                    UIDataTile(</a>
+<a name="100"><span class="lineNumber">     100 </span>                      title: 'Wikipedia URL: ',</a>
+<a name="101"><span class="lineNumber">     101 </span>                      value: GestureDetector(</a>
+<a name="102"><span class="lineNumber">     102 </span>                        onTap: () {</a>
+<a name="103"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">     103 </span>                          if (breed.wikipediaUrl.isNotEmpty) {</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                          <span class="changedTokens"> if (!(breed.wikipediaUrl.isNotEmpty)) {</span></span></td><td class="match">RegExp: pattern=[\s]if[\s]*\((.*?)\)[\s]*{ flags=ms<span class="tooltip">Id: builtin.if</span></td></tr><tr><td colspan="3"><hr class="ruler"/></td></tr><tr><td class="mutationLabel" width="5%">2 :</td><td class="mutationText" width="87%"><span class="addedLine">+                           if (breed.wikipediaUrl.isNotEmpty) <span class="changedTokens">{
                             </span></span></td><td class="match">RegExp: pattern=([{]\s*)([^\(;=\s}]+\([^;]+\)\s*;) flags=m<span class="tooltip">Id: builtin.function.removeVoidCall1</span></td></tr></table>
 
-</div></a><a name="107"><span class="lineNumber">     107 </span>                            launchUrl(Uri.parse(breed.wikipediaUrl));</a>
-<a name="108"><span class="lineNumber">     108 </span>                          }</a>
-<a name="109"><span class="lineNumber">     109 </span>                        },</a>
-<a name="110"><span class="lineNumber">     110 </span>                        child: const Text(</a>
-<a name="111"><span class="lineNumber">     111 </span>                          'Wikipedia',</a>
-<a name="112"><span class="lineNumber">     112 </span>                          style: TextStyle(</a>
-<a name="113"><span class="lineNumber">     113 </span>                            decoration: TextDecoration.underline,</a>
-<a name="114"><span class="lineNumber">     114 </span>                          ),</a>
-<a name="115"><span class="lineNumber">     115 </span>                        ),</a>
-<a name="116"><span class="lineNumber">     116 </span>                      ),</a>
-<a name="117"><span class="lineNumber">     117 </span>                    ),</a>
-<a name="118"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">     118 </span>                    const SizedBox(height: 16.0),</pre></button>
+</div></a><a name="104"><span class="lineNumber">     104 </span>                            launchUrl(Uri.parse(breed.wikipediaUrl));</a>
+<a name="105"><span class="lineNumber">     105 </span>                          }</a>
+<a name="106"><span class="lineNumber">     106 </span>                        },</a>
+<a name="107"><span class="lineNumber">     107 </span>                        child: const Text(</a>
+<a name="108"><span class="lineNumber">     108 </span>                          'Wikipedia',</a>
+<a name="109"><span class="lineNumber">     109 </span>                          style: TextStyle(</a>
+<a name="110"><span class="lineNumber">     110 </span>                            decoration: TextDecoration.underline,</a>
+<a name="111"><span class="lineNumber">     111 </span>                          ),</a>
+<a name="112"><span class="lineNumber">     112 </span>                        ),</a>
+<a name="113"><span class="lineNumber">     113 </span>                      ),</a>
+<a name="114"><span class="lineNumber">     114 </span>                    ),</a>
+<a name="115"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">     115 </span>                    const SizedBox(height: 16.0),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                     const SizedBox(height:<span class="changedTokens"> -16.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="119"><span class="lineNumber">     119 </span>                    const Text(</a>
-<a name="120"><span class="lineNumber">     120 </span>                      'Temperament',</a>
-<a name="121"><span class="lineNumber">     121 </span>                      style: TextStyle(</a>
-<a name="122"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">     122 </span>                        fontSize: 16.0,</pre></button>
-<div class="content">
-<b>Undetected mutations:</b>
-<table class="mutationTable" width="100%">
-<tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                         fontSize:<span class="changedTokens"> -16.0</span>,</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
-
-</div></a><a name="123"><span class="lineNumber">     123 </span>                        fontWeight: FontWeight.bold,</a>
-<a name="124"><span class="lineNumber">     124 </span>                      ),</a>
-<a name="125"><span class="lineNumber">     125 </span>                    ),</a>
-<a name="126"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">     126 </span>                    const SizedBox(height: 8.0),</pre></button>
+</div></a><a name="116"><span class="lineNumber">     116 </span>                    const Text('Temperament', style: AppTextStyles.bodyLarge),</a>
+<a name="117"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">     117 </span>                    const SizedBox(height: 8.0),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                     const SizedBox(height:<span class="changedTokens"> -8.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="127"><span class="lineNumber">     127 </span>                    Wrap(</a>
-<a name="128"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">     128 </span>                      spacing: 8.0,</pre></button>
+</div></a><a name="118"><span class="lineNumber">     118 </span>                    Wrap(</a>
+<a name="119"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">     119 </span>                      spacing: 8.0,</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                       spacing:<span class="changedTokens"> -8.0</span>,</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="129"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">     129 </span>                      runSpacing: 8.0,</pre></button>
+</div></a><a name="120"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">     120 </span>                      runSpacing: 8.0,</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                       runSpacing:<span class="changedTokens"> -8.0</span>,</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="130"><span class="lineNumber">     130 </span>                      children: breed.temperament</a>
-<a name="131"><span class="lineNumber">     131 </span>                          .split(',')</a>
-<a name="132"><span class="lineNumber">     132 </span>                          .map((tag) =&gt; UITag(text: tag.trim()))</a>
-<a name="133"><span class="lineNumber">     133 </span>                          .toList(),</a>
-<a name="134"><span class="lineNumber">     134 </span>                    ),</a>
-<a name="135"><span class="lineNumber">     135 </span>                  ],</a>
-<a name="136"><span class="lineNumber">     136 </span>                ),</a>
-<a name="137"><span class="lineNumber">     137 </span>              ),</a>
-<a name="138"><span class="lineNumber">     138 </span>            ),</a>
-<a name="139"><span class="lineNumber">     139 </span>          ],</a>
-<a name="140"><span class="lineNumber">     140 </span>        ),</a>
-<a name="141"><span class="lineNumber">     141 </span>      ),</a>
-<a name="142"><span class="lineNumber">     142 </span>    );</a>
-<a name="143"><span class="lineNumber">     143 </span>  }</a>
-<a name="144"><span class="lineNumber">     144 </span>}</a>
-<a name="145"><span class="lineNumber">     145 </span></a>
+</div></a><a name="121"><span class="lineNumber">     121 </span>                      children: breed.temperament</a>
+<a name="122"><span class="lineNumber">     122 </span>                          .split(',')</a>
+<a name="123"><span class="lineNumber">     123 </span>                          .map((tag) =&gt; UITag(text: tag.trim()))</a>
+<a name="124"><span class="lineNumber">     124 </span>                          .toList(),</a>
+<a name="125"><span class="lineNumber">     125 </span>                    ),</a>
+<a name="126"><span class="lineNumber">     126 </span>                  ],</a>
+<a name="127"><span class="lineNumber">     127 </span>                ),</a>
+<a name="128"><span class="lineNumber">     128 </span>              ),</a>
+<a name="129"><span class="lineNumber">     129 </span>            ),</a>
+<a name="130"><span class="lineNumber">     130 </span>          ],</a>
+<a name="131"><span class="lineNumber">     131 </span>        ),</a>
+<a name="132"><span class="lineNumber">     132 </span>      ),</a>
+<a name="133"><span class="lineNumber">     133 </span>    );</a>
+<a name="134"><span class="lineNumber">     134 </span>  }</a>
+<a name="135"><span class="lineNumber">     135 </span>}</a>
+<a name="136"><span class="lineNumber">     136 </span></a>
 </pre>
 <script>
 var coll = document.getElementsByClassName("collapsible");

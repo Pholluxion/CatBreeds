@@ -360,10 +360,10 @@ td.barBg
 
      <tr>
      <td class="ItemLabel" width="10%">Date:</td>
-     <td class="ItemText" width="35%">2025-11-07 11:40:00.288294</td>
+     <td class="ItemText" width="35%">2025-11-14 11:53:08.045836</td>
      <td class="ItemLabel" width="10%">Mutations:</td>
      <td class="ItemReport" width="15%">0</td>
-     <td class="ItemReport" width="15%">11</td>
+     <td class="ItemReport" width="15%">9</td>
      <td class="ItemReportLow" width="15%">0.0 %</td>
      </tr>
      
@@ -372,7 +372,7 @@ td.barBg
      <td class="ItemText" width="35%">true</td>
      <td class="ItemLabel" width="10%">Blocked:</td>
      <td class="ItemReport" width="15%">0</td>
-     <td class="ItemReport" width="15%">11</td>
+     <td class="ItemReport" width="15%">9</td>
      <td class="ItemReportHigh" width="15%">0.0 %</td>
      </tr>
      </tbody>
@@ -396,94 +396,76 @@ td.barBg
 <a name="7"><span class="lineNumber">       7 </span>import 'package:cat_breed/features/cat_breeds/presentation/presentation.dart';</a>
 <a name="8"><span class="lineNumber">       8 </span>import 'package:cat_breed/features/cat_breeds/routes.dart';</a>
 <a name="9"><span class="lineNumber">       9 </span></a>
-<a name="10"><span class="lineNumber">      10 </span>const kWhiteColor = Color(0xFFFFFFFF);</a>
-<a name="11"><span class="lineNumber">      11 </span></a>
-<a name="12"><span class="lineNumber">      12 </span>class SplashPage extends StatelessWidget {</a>
-<a name="13"><span class="lineNumber">      13 </span>  const SplashPage({super.key});</a>
-<a name="14"><span class="lineNumber">      14 </span></a>
-<a name="15"><span class="lineNumber">      15 </span>  @override</a>
-<a name="16"><span class="lineNumber">      16 </span>  Widget build(BuildContext context) {</a>
-<a name="17"><span class="lineNumber">      17 </span>    return UIScaffold(</a>
-<a name="18"><span class="lineNumber">      18 </span>      body: BlocListener&lt;CatBreedBloc, CatBreedState&gt;(</a>
-<a name="19"><span class="lineNumber">      19 </span>        listener: (context, state) {</a>
-<a name="20"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      20 </span>          if (state is CatBreedLoadedState) {</pre></button>
+<a name="10"><span class="lineNumber">      10 </span>class SplashPage extends StatelessWidget {</a>
+<a name="11"><span class="lineNumber">      11 </span>  const SplashPage({super.key});</a>
+<a name="12"><span class="lineNumber">      12 </span></a>
+<a name="13"><span class="lineNumber">      13 </span>  @override</a>
+<a name="14"><span class="lineNumber">      14 </span>  Widget build(BuildContext context) {</a>
+<a name="15"><span class="lineNumber">      15 </span>    return UIScaffold(</a>
+<a name="16"><span class="lineNumber">      16 </span>      body: BlocListener&lt;CatBreedBloc, CatBreedState&gt;(</a>
+<a name="17"><span class="lineNumber">      17 </span>        listener: (context, state) {</a>
+<a name="18"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      18 </span>          if (state is CatBreedLoadedState) {</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+          <span class="changedTokens"> if (!(state is CatBreedLoadedState)) {</span></span></td><td class="match">RegExp: pattern=[\s]if[\s]*\((.*?)\)[\s]*{ flags=ms<span class="tooltip">Id: builtin.if</span></td></tr><tr><td colspan="3"><hr class="ruler"/></td></tr><tr><td class="mutationLabel" width="5%">2 :</td><td class="mutationText" width="87%"><span class="addedLine">+           if (state is CatBreedLoadedState) <span class="changedTokens">{
             </span></span></td><td class="match">RegExp: pattern=([{]\s*)([^\(;=\s}]+\([^;]+\)\s*;) flags=m<span class="tooltip">Id: builtin.function.removeVoidCall1</span></td></tr></table>
 
-</div></a><a name="21"><span class="lineNumber">      21 </span>            context.pushReplacementNamed(CatBreedsRoutes.home.name);</a>
-<a name="22"><span class="lineNumber">      22 </span>          }</a>
-<a name="23"><span class="lineNumber">      23 </span>        },</a>
-<a name="24"><span class="lineNumber">      24 </span>        child: Column(</a>
-<a name="25"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      25 </span>          spacing: 20,</pre></button>
+</div></a><a name="19"><span class="lineNumber">      19 </span>            context.pushReplacementNamed(CatBreedsRoutes.home.name);</a>
+<a name="20"><span class="lineNumber">      20 </span>          }</a>
+<a name="21"><span class="lineNumber">      21 </span>        },</a>
+<a name="22"><span class="lineNumber">      22 </span>        child: Column(</a>
+<a name="23"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      23 </span>          spacing: 20,</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+           spacing:<span class="changedTokens"> -20</span>,</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="26"><span class="lineNumber">      26 </span>          mainAxisAlignment: MainAxisAlignment.spaceEvenly,</a>
-<a name="27"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      27 </span>          children: [</pre></button>
+</div></a><a name="24"><span class="lineNumber">      24 </span>          mainAxisAlignment: MainAxisAlignment.spaceEvenly,</a>
+<a name="25"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      25 </span>          children: [</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+           children<span class="changedTokens">: []</span>,</span></td><td class="match">RegExp: pattern=([=:>]\s*)\[([^\],]+),([^\]]+)\] flags=m<span class="tooltip">Id: builtin.list.clear</span></td></tr></table>
 
-</div></a><a name="28"><span class="lineNumber">      28 </span>            const Text(</a>
-<a name="29"><span class="lineNumber">      29 </span>              'CatBreed',</a>
-<a name="30"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      30 </span>              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),</pre></button>
-<div class="content">
-<b>Undetected mutations:</b>
-<table class="mutationTable" width="100%">
-<tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+               style: TextStyle(fontSize:<span class="changedTokens"> -32</span>, fontWeight: FontWeight.bold),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
-
-</div></a><a name="31"><span class="lineNumber">      31 </span>            ),</a>
-<a name="32"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      32 </span>            const SizedBox(height: 100),</pre></button>
+</div></a><a name="26"><span class="lineNumber">      26 </span>            const Text('CatBreed', style: AppTextStyles.headlineLarge),</a>
+<a name="27"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      27 </span>            const SizedBox(height: 100),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+             const SizedBox(height:<span class="changedTokens"> -100</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="33"><span class="lineNumber">      33 </span>            Center(</a>
-<a name="34"><span class="lineNumber">      34 </span>              child: Image.asset(</a>
-<a name="35"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      35 </span>                'assets/images/cat.png',</pre></button>
+</div></a><a name="28"><span class="lineNumber">      28 </span>            Center(</a>
+<a name="29"><span class="lineNumber">      29 </span>              child: Image.asset(</a>
+<a name="30"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      30 </span>                'assets/images/cat.png',</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                 'assets<span class="changedTokens">*i</span>mages/cat.png',</span></td><td class="match">RegExp: pattern=/([^=]) flags=m<span class="tooltip">Id: builtin.arith.div</span></td></tr><tr><td colspan="3"><hr class="ruler"/></td></tr><tr><td class="mutationLabel" width="5%">2 :</td><td class="mutationText" width="87%"><span class="addedLine">+                 'assets/images<span class="changedTokens">*c</span>at.png',</span></td><td class="match">RegExp: pattern=/([^=]) flags=m<span class="tooltip">Id: builtin.arith.div</span></td></tr></table>
 
-</div></a><a name="36"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      36 </span>                width: 200,</pre></button>
+</div></a><a name="31"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      31 </span>                width: 200,</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                 width:<span class="changedTokens"> -200</span>,</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="37"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      37 </span>                height: 200,</pre></button>
+</div></a><a name="32"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      32 </span>                height: 200,</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
 <tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+                 height:<span class="changedTokens"> -200</span>,</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="38"><span class="lineNumber">      38 </span>              ),</a>
-<a name="39"><span class="lineNumber">      39 </span>            ),</a>
-<a name="40"><span class="lineNumber">      40 </span>            const UICircularProgressIndicator(),</a>
-<a name="41"><span class="lineNumber">      41 </span>            const Text(</a>
-<a name="42"><span class="lineNumber">      42 </span>              'Loading...',</a>
-<a name="43"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      43 </span>              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),</pre></button>
-<div class="content">
-<b>Undetected mutations:</b>
-<table class="mutationTable" width="100%">
-<tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+               style: TextStyle(fontSize:<span class="changedTokens"> -20</span>, fontWeight: FontWeight.w500),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
-
-</div></a><a name="44"><span class="lineNumber">      44 </span>            ),</a>
-<a name="45"><span class="lineNumber">      45 </span>          ],</a>
-<a name="46"><span class="lineNumber">      46 </span>        ),</a>
-<a name="47"><span class="lineNumber">      47 </span>      ),</a>
-<a name="48"><span class="lineNumber">      48 </span>    );</a>
-<a name="49"><span class="lineNumber">      49 </span>  }</a>
-<a name="50"><span class="lineNumber">      50 </span>}</a>
-<a name="51"><span class="lineNumber">      51 </span></a>
+</div></a><a name="33"><span class="lineNumber">      33 </span>              ),</a>
+<a name="34"><span class="lineNumber">      34 </span>            ),</a>
+<a name="35"><span class="lineNumber">      35 </span>            const UICircularProgressIndicator(),</a>
+<a name="36"><span class="lineNumber">      36 </span>            const Text('Loading...', style: AppTextStyles.headlineSmall),</a>
+<a name="37"><span class="lineNumber">      37 </span>          ],</a>
+<a name="38"><span class="lineNumber">      38 </span>        ),</a>
+<a name="39"><span class="lineNumber">      39 </span>      ),</a>
+<a name="40"><span class="lineNumber">      40 </span>    );</a>
+<a name="41"><span class="lineNumber">      41 </span>  }</a>
+<a name="42"><span class="lineNumber">      42 </span>}</a>
+<a name="43"><span class="lineNumber">      43 </span></a>
 </pre>
 <script>
 var coll = document.getElementsByClassName("collapsible");

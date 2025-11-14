@@ -360,10 +360,10 @@ td.barBg
 
      <tr>
      <td class="ItemLabel" width="10%">Date:</td>
-     <td class="ItemText" width="35%">2025-11-07 11:40:00.337054</td>
+     <td class="ItemText" width="35%">2025-11-14 11:53:08.080646</td>
      <td class="ItemLabel" width="10%">Mutations:</td>
      <td class="ItemReport" width="15%">0</td>
-     <td class="ItemReport" width="15%">4</td>
+     <td class="ItemReport" width="15%">2</td>
      <td class="ItemReportLow" width="15%">0.0 %</td>
      </tr>
      
@@ -372,7 +372,7 @@ td.barBg
      <td class="ItemText" width="35%">true</td>
      <td class="ItemLabel" width="10%">Blocked:</td>
      <td class="ItemReport" width="15%">0</td>
-     <td class="ItemReport" width="15%">4</td>
+     <td class="ItemReport" width="15%">2</td>
      <td class="ItemReportHigh" width="15%">0.0 %</td>
      </tr>
      </tbody>
@@ -389,40 +389,37 @@ td.barBg
 <pre class="fileContents">
 <a name="1"><span class="lineNumber">       1 </span>import 'package:flutter/widgets.dart';</a>
 <a name="2"><span class="lineNumber">       2 </span></a>
-<a name="3"><span class="lineNumber">       3 </span>class UITag extends StatelessWidget {</a>
-<a name="4"><span class="lineNumber">       4 </span>  const UITag({required this.text, super.key});</a>
-<a name="5"><span class="lineNumber">       5 </span></a>
-<a name="6"><span class="lineNumber">       6 </span>  final String text;</a>
+<a name="3"><span class="lineNumber">       3 </span>import 'package:cat_breed/core/app_styles.dart';</a>
+<a name="4"><span class="lineNumber">       4 </span></a>
+<a name="5"><span class="lineNumber">       5 </span>class UITag extends StatelessWidget {</a>
+<a name="6"><span class="lineNumber">       6 </span>  const UITag({required this.text, super.key});</a>
 <a name="7"><span class="lineNumber">       7 </span></a>
-<a name="8"><span class="lineNumber">       8 </span>  @override</a>
-<a name="9"><span class="lineNumber">       9 </span>  Widget build(BuildContext context) {</a>
-<a name="10"><span class="lineNumber">      10 </span>    return Container(</a>
-<a name="11"><span class="lineNumber">      11 </span>      decoration: BoxDecoration(</a>
-<a name="12"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      12 </span>        borderRadius: BorderRadius.circular(8.0),</pre></button>
+<a name="8"><span class="lineNumber">       8 </span>  final String text;</a>
+<a name="9"><span class="lineNumber">       9 </span></a>
+<a name="10"><span class="lineNumber">      10 </span>  @override</a>
+<a name="11"><span class="lineNumber">      11 </span>  Widget build(BuildContext context) {</a>
+<a name="12"><span class="lineNumber">      12 </span>    return Container(</a>
+<a name="13"><span class="lineNumber">      13 </span>      decoration: BoxDecoration(</a>
+<a name="14"><span class="lineNumber">      14 </span>        borderRadius: AppBorderRadius.small,</a>
+<a name="15"><span class="lineNumber">      15 </span>        shape: BoxShape.rectangle,</a>
+<a name="16"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      16 </span>        border: Border.all(color: AppColors.borderDark, width: 1.0),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
-<tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+         borderRadius: BorderRadius.circular<span class="changedTokens">(-8.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
+<tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+         border: Border.all(color: AppColors.borderDark, width:<span class="changedTokens"> -1.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
 
-</div></a><a name="13"><span class="lineNumber">      13 </span>        shape: BoxShape.rectangle,</a>
-<a name="14"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      14 </span>        border: Border.all(color: const Color(0xFF000000), width: 1.0),</pre></button>
+</div></a><a name="17"><span class="lineNumber">      17 </span>      ),</a>
+<a name="18"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      18 </span>      child: Padding(padding: AppSpacing.paddingXS, child: Text(text)),</pre></button>
 <div class="content">
 <b>Undetected mutations:</b>
 <table class="mutationTable" width="100%">
-<tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+         border: Border.all(color: const Color(0xFF000000), width:<span class="changedTokens"> -1.0</span>),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
-
-</div></a><a name="15"><span class="lineNumber">      15 </span>      ),</a>
-<a name="16"><button class="collapsible problem"><pre class="fileContents"><span class="lineNumber">      16 </span>      child: Padding(padding: const EdgeInsets.all(2.0), child: Text(text)),</pre></button>
-<div class="content">
-<b>Undetected mutations:</b>
-<table class="mutationTable" width="100%">
-<tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+       child: Padding(padding: const EdgeInsets.all<span class="changedTokens">(-2.0</span>), child: Text(text)),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr><tr><td colspan="3"><hr class="ruler"/></td></tr><tr><td class="mutationLabel" width="5%">2 :</td><td class="mutationText" width="87%"><span class="addedLine">+       child: Padding(padding: const EdgeInsets.all(2.0), child:<span class="changedTokens"> Text(
+<tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+       child: Padding(padding: AppSpacing.paddingXS, child:<span class="changedTokens"> Text(
     ,text)));</span></span></td><td class="match">RegExp: pattern=([\s][a-zA-Z]+?[^(;\s{}]*?)\s*\(([^,:;{}(]+?),([^,:;{}(]+?)\)\s*; flags=m<span class="tooltip">Id: builtin.function.arg2</span></td></tr></table>
 
-</div></a><a name="17"><span class="lineNumber">      17 </span>    );</a>
-<a name="18"><span class="lineNumber">      18 </span>  }</a>
-<a name="19"><span class="lineNumber">      19 </span>}</a>
-<a name="20"><span class="lineNumber">      20 </span></a>
+</div></a><a name="19"><span class="lineNumber">      19 </span>    );</a>
+<a name="20"><span class="lineNumber">      20 </span>  }</a>
+<a name="21"><span class="lineNumber">      21 </span>}</a>
+<a name="22"><span class="lineNumber">      22 </span></a>
 </pre>
 <script>
 var coll = document.getElementsByClassName("collapsible");

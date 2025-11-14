@@ -28,7 +28,7 @@ class AppTextStyles {
 
   // Títulos
   static const headlineLarge = TextStyle(
-    fontSize: -32,
+    fontSize: 32,
     fontWeight: FontWeight.bold,
     fontFamily: 'Montserrat',
   );

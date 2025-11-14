@@ -50,8 +50,18 @@ ci: clean_build deps sort_imports build test
 debug:
 	$(FLUTTER) run --dart-define-from-file=.env
 
+# Build for iOS simulator
+build_ios_sim:
+	$(FLUTTER) build ios --simulator --dart-define-from-file=.env
+
+# Build for Android
+build_android:
+	$(FLUTTER) build apk --dart-define-from-file=.env --debug
+
 release:
 	$(FLUTTER) build apk --dart-define-from-file=.env --release
 
+
 # Declare phony targets
-.PHONY: deps sort_imports build watch clean_build test coverage lint ci debug release clean
+.PHONY: deps sort_imports build watch clean_build test coverage lint ci debug release clean \
+        build_ios_sim build_android
